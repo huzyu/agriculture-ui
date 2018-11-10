@@ -7,17 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-    .left ,.right{background-color:#F7F7F7;margin: 10px;color:#6F6F6F;}
-    .img{margin-left: 10%;width: 50%;height: auto;}
-    .qixiangzhan{border:1px solid #000;margin: 10%;}
+    .left ,.right{background-color:#F7F7F7;margin: 10px;color:#6F6F6F;float: none; text-align:center;}
+    .qixiangzhan{border:1px solid #000;margin: 5%;}
     .qixiangzhan img{width: 50px;}
+    .qixiangzhan div{display:inline-block;margin-left: 30px;}
     .pengnei img{width: 50px;}
-    .left div{display:inline-block;margin-left: 20px;}
     .left h4{text-align: center}
     .kongzhi p{text-align: center}
     .kongzhi div{display: inline-block;margin: 5%}
-    .right img{width: 100px;}
+    .huanjing div{display: inline-block;margin: 3%}
+    .right img{width: 50px;}
     .kongzhi a {text-decoration: none}
+    .navbar-nav {
+        float: none;
+        text-align:center;
+}
+    ul.nav.navbar-nav  li {
+        float:none;
+        display: inline-block;
+        margin: 0em;
+}
     </style>
 </head>
 <body>
@@ -46,46 +55,52 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 left" >
+        
+            <div class=" left" >
+            <br/>
             <h3>环境监控</h3>
             <p class="img"><img src="../static/img/shili.jpg"/></p>
             <div class="pengnei">
                 <h4>棚内环境</h4>
-                <div>
-                <div ><img src="../static/img/温度.png"/><p class="1b66">空气温度1：<span class="0"></span></p></div>
-                <div ><img src="../static/img/湿度.png"/><p>空气湿度1：</p></div>
-                <div ><img src="../static/img/温度.png"/><p>空气温度2：</p></div>
-                <div ><img src="../static/img/湿度.png"/><p>空气湿度2：</p></div>
-                <div ><img src="../static/img/温度.png"/><p>空气温度3：</p></div>
-                <div ><img src="../static/img/湿度.png"/><p>空气湿度3：</p></div>
-                <div ><img src="../static/img/温度.png"/><p>空气温度4：</p></div>
-                <div ><img src="../static/img/湿度.png"/><p>空气湿度4：</p></div>
+                <div class="huanjing">
+                <div ><img src="../static/img/温度.png"/><p class="1b66">温度1：<span class="0"></span></p></div>
+                <div ><img src="../static/img/温度.png"/><p>温度2：<span></span></p></div>               
+                <div ><img src="../static/img/温度.png"/><p>温度3：<span></span></p></div>               
+                <div ><img src="../static/img/温度.png"/><p>温度4：<span></span></p></div>
                 </div>
-                <div>
-                <div ><img src="../static/img/湿度.png"/><p>土壤湿度1：</p></div>
-                <div ><img src="../static/img/湿度.png"/><p>土壤湿度2：</p></div>
-                <div ><img src="../static/img/湿度.png"/><p>土壤湿度3：</p></div>
-                <div ><img src="../static/img/湿度.png"/><p>土壤湿度4：</p></div>
+
+                <div class="huanjing">              
+                <div ><img src="../static/img/湿度.png"/><p>湿度1：<span></span></p></div>
+                <div ><img src="../static/img/湿度.png"/><p>湿度2：<span></span></p></div>
+                <div ><img src="../static/img/湿度.png"/><p>湿度3：<span></span></p></div>
+                <div ><img src="../static/img/湿度.png"/><p>湿度4：<span></span></p></div>
                 </div>
-                <div>
-                <div ><img src="../static/img/光照度传感器.png"/><p>光照：</p></div>
-                <div ><img src="../static/img/水温.png"/><p>水温：</p></div>
-                <div ><img src="../static/img/EC.png"/><p>EC值：</p></div>
-                <div ><img src="../static/img/co2.png"/><p>二氧化碳：</p></div>
+                <div class="huanjing">
+                <div ><img src="../static/img/光照度传感器.png"/><p>光照：<span></span></p></div>
+                <div ><img src="../static/img/水温.png"/><p>水温：</p><span></span></div>
+                <div ><img src="../static/img/EC.png"/><p>EC值：</p><span></span></div>
+                <div ><img src="../static/img/co2.png"/><p>二氧化碳：</p><span></span></div>
                 </div>
+                <div class="huanjing">
+                <div ><img src="../static/img/湿度.png"/><p>土壤湿度1：<span></span></p></div>
+                <div ><img src="../static/img/湿度.png"/><p>土壤湿度2：<span></span></p></div>
+                <div ><img src="../static/img/湿度.png"/><p>土壤湿度3：<span></span></p></div>
+                <div ><img src="../static/img/湿度.png"/><p>土壤湿度4：<span></span></p></div>
+                </div>
+                
             </div>
             
             <div class="qixiangzhan">
                 <h4 class="title">小型气象站</h4>
-                <div ><img src="../static/img/光照度传感器.png"/><p>光照：</p></div>
-                <div ><img src="../static/img/风力.png"/><p>风力：</p></div>
-                <div ><img src="../static/img/降水.png"/><p>降水：</p></div>
-                <div ><img src="../static/img/温度.png"/><p>温度：</p></div>
-                <div ><img src="../static/img/湿度.png"/><p>湿度：</p></div>
+                <div ><img src="../static/img/光照度传感器.png"/><p>光照：</p><span></span></div>
+                <div ><img src="../static/img/风力.png"/><p>风力：</p><span></span></div>
+                <div ><img src="../static/img/降水.png"/><p>降水：</p><span></span></div>
+                <div ><img src="../static/img/温度.png"/><p>温度：</p><span></span></div>
+                <div ><img src="../static/img/湿度.png"/><p>湿度：</p><span></span></div>
             </div>
             </div>
-            <div class="col-md-5 right" >
+            <div class=" right" >
+                    <br/>
                 <h3>环境控制</h3>
                 
                     <div class="kongzhi">
@@ -110,11 +125,12 @@
                         <div><a href="#"><img src="../static/img/灌溉作业管理.png"/><p>苗床灌溉</p></a></div>
                         <div><a href="#"><img src="../static/img/烧烤 热风-01.png"/><p>热风机</p></a></div>
                         <div><a href="#"><img src="../static/img/显示屏.png"/><p>显示屏</p></a></div>
+                        <div><a href="#"><img src="../static/img/更多.png"/><p></p></a></div>
                     </div>
                 
             </div>
         </div>
-    </div>
+
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../static/js/device-ws.js"></script>
