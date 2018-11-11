@@ -26,16 +26,25 @@ var websocket = null;
             var msg = JSON.parse(innerHtml);
             console.log(msg);
             for(i in msg.list){
-                var data_type = msg.list[i].data_type;
-                var loraNode_id = msg.list[i].loraNode_id
-                var data = msg.list[i].data;
-                console.log(data_type+" "+data+" "+loraNode_id);
-                switch(data_type){
+                var dataType = msg.list[i].dataType;
+                var loraClass = "."+msg.list[i].loraNodeId
+                switch(dataType){
                     case 0:
-                        var loraClass = "."+loraNode_id; 
-                        console.log(loraClass);
-                        $("loraClass,.0").text(data);
-                        //$(".0").text(data);
+                        //温度数据
+                        $("loraClass,.airTemp").text(msg.list[i].airTemp);
+                        $("loraClass,.airHumidity").text(msg.list[i].airHumidity);
+                        break;
+                    case 1:
+                        //土壤湿度
+                        $("loraClass,.soilHumidity").text(msg.list[i].soilHumidity);
+                        break;
+                    case 2:
+                        //光照
+                        $("loraClass,.intensity").text(msg.list[i].intensity);
+                        break;
+                    case 3:
+                        //CO2
+                        $("loraClass,.concentration").text(msg.list[i].concentration);
                         break;
 
                 }
