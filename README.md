@@ -14,7 +14,8 @@ UI for back-end project
     │  │
     │  └─js
     └─templates
-            device.html
+            device.html 原生H5版本
+            device-thymleaf.html thymleaf模板版本
 ```
 * static 静态资源,css/js/图片对应放到css/js/img文件夹
 * templates 页面
