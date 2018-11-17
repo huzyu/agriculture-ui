@@ -27,24 +27,28 @@ var websocket = null;
             console.log(msg);
             for(i in msg.list){
                 var dataType = msg.list[i].dataType;
-                var loraClass = "."+msg.list[i].loraNodeId
+                var idSelector = msg.list[i].loraNodeId;
                 switch(dataType){
                     case 0:
-                        //温度数据
-                        $("loraClass,.airTemp").text(msg.list[i].airTemp);
-                        $("loraClass,.airHumidity").text(msg.list[i].airHumidity);
+                        //温湿度数据
+                        $("#"+idSelector+"airTemp").text(msg.list[i].airTemp);
+                        $("#"+idSelector+"airHumidity").text(msg.list[i].airHumidity);
                         break;
                     case 1:
                         //土壤湿度
-                        $("loraClass,.soilHumidity").text(msg.list[i].soilHumidity);
+                        $("#"+idSelector+"soilHumidity").text(msg.list[i].soilHumidity);
                         break;
                     case 2:
                         //光照
-                        $("loraClass,.intensity").text(msg.list[i].intensity);
+                        $("#"+idSelector+"intensity").text(msg.list[i].intensity);
                         break;
                     case 3:
                         //CO2
-                        $("loraClass,.concentration").text(msg.list[i].concentration);
+                        $("#"+idSelector+"concentration").text(msg.list[i].concentration);
+                        break;
+                    case 19:
+                        //水温
+                        $("#"+idSelector+"waterTemp").text(msg.list[i].waterTemp);
                         break;
 
                 }
