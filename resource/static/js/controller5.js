@@ -24,11 +24,12 @@ var Main ={
             console.log(params);
 
             if (params.type === 'open'){ 
-
+                alert(`行号：${params.index+1} 开!`)
                 
             }else if (params.type === 'close'){ 
-
-                
+                alert(`行号：${params.index+1} 关!`)
+            }else if (params.type === 'stop'){ 
+                alert(`行号：${params.index+1} 停!`)               
             }
 
         }
@@ -58,7 +59,7 @@ Vue.component('table-operation',{
            // 参数根据业务场景随意构造
            let params = {type:'open',index:this.index,rowData:this.rowData};
            this.$emit('on-custom-comp',params);
-           alert(`行号：${params.index+1} 开`)
+          
         },
 
         close(){
@@ -66,7 +67,7 @@ Vue.component('table-operation',{
             // 参数根据业务场景随意构造
             let params = {type:'close',index:this.index,rowData:this.rowData};
             this.$emit('on-custom-comp',params);
-            alert(`行号：${params.index+1} 关`)
+          
 
         }
     }

@@ -1,4 +1,65 @@
-import tableData from './table13.js';
+tableData = [
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"},
+    {"votage":"电磁阀直流24","power":"10w"}
+]
 
 var Ctor =Vue.extend({
     data() {
@@ -11,7 +72,7 @@ var Ctor =Vue.extend({
                     {
                         field: 'custome', title:'序号', width: 50, titleAlign: 'center', columnAlign: 'center',
                         formatter: function (rowData,rowIndex,pagingIndex,field) {
-                            return  rowIndex + 1
+                            return  rowIndex + 1 + pagingIndex
                         }, isFrozen: true,isResize:true
                     },
                     {field: 'votage', title: '电压', width: 80, titleAlign: 'center', columnAlign: 'center',isResize:true},
@@ -41,7 +102,19 @@ var Ctor =Vue.extend({
         this.pageSize = pageSize;
         this.getTableData();
        },
+       customCompFunc(params){
 
+        console.log(params);
+
+        if (params.type === 'open'){ // do open operation
+
+            alert(`行号：${ params.index+1+(this.pageIndex-1)*this.pageSize} 开!`)
+
+        }
+        if (params.type === 'close'){
+            alert(`行号：${params.index+1+(this.pageIndex-1)*this.pageSize} 关!`)
+        }
+    }
     },
 })
 
@@ -67,9 +140,10 @@ Vue.component('table-operation',{
         open(){
 
            // 参数根据业务场景随意构造
-           let params = {type:'open',index:this.index,rowData:this.rowData};
+           let params = {type:'open',index:this.index,rowData:this.rowData,field:this.field};
            this.$emit('on-custom-comp',params);
-           alert(`行号：${params.index+1} 开`)
+           
+        
         },
 
         close(){
@@ -77,8 +151,6 @@ Vue.component('table-operation',{
             // 参数根据业务场景随意构造
             let params = {type:'close',index:this.index,rowData:this.rowData};
             this.$emit('on-custom-comp',params);
-            alert(`行号：${params.index+1} 关`)
-
         }
     }
 })
