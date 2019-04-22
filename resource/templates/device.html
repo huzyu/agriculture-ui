@@ -7,28 +7,7 @@
     <link rel="shortcut icon" href="../static/img/farm.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-    .left ,.right{background-color:#F7F7F7;margin: 10px;color:#6F6F6F;float: none; text-align:center;}
-    .qixiangzhan{border:1px solid #000;margin: 5%;}
-    .qixiangzhan img{width: 50px;}
-    .qixiangzhan div{display:inline-block;margin-left: 30px;}
-    .pengnei img{width: 50px;}
-    .left h4{text-align: center}
-    .kongzhi p{text-align: center}
-    .kongzhi div{display: inline-block;margin: 5%}
-    .huanjing div{display: inline-block;margin: 3%}
-    .right img{width: 50px;}
-    .kongzhi a {text-decoration: none}
-    .navbar-nav {
-        float: none;
-        text-align:center;
-}
-    ul.nav.navbar-nav  li {
-        float:none;
-        display: inline-block;
-        margin: 0em;
-}
-    </style>
+    <link href="../static/css/device.css"type="text/css"  rel="stylesheet"/>
 </head>
 <body>
     <div class="header">
@@ -44,7 +23,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="menu">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="device.html">设备监控</a></li>
+                        <li class="active"><a href="device.html">环境监控</a></li>
+                        <li><a href="controller.html">环境控制</a></li>
                         <li><a href="#">设备管理</a></li>
                         <li><a href="#">视频监控</a></li>
                         <li><a href="#">系统设置</a></li>
@@ -54,13 +34,11 @@
             </nav>
         </div>
     </div>
-
-    <div class="container">
+    <div class="container" >
         
             <div class=" left" >
             <br/>
             <h3>环境监控</h3>
-            <p class="img"><img src="../static/img/shili.jpg"/></p>
             <div class="pengnei">
                 <h4>棚内环境</h4>
                 <div class="huanjing">
@@ -103,37 +81,7 @@
                 <div ><img src="../static/img/湿度.png"/><p>湿度：</p><span></span></div>
             </div>
             </div>
-            <div class=" right" >
-                    <br/>
-                <h3>环境控制</h3>
-                
-                    <div class="kongzhi">
-                        <div><a href="controller1.html"><img src="../static/img/电动遮阳.png"/><p>外遮阳</p></a></div>
-                        <div><a href="controller2.html"><img src="../static/img/电动遮阳.png"/><p>内遮阳</p></a></div>
-                        <div><a href="controller3.html"><img src="../static/img/通风卷帘.png"/><p>顶通风</p></a></div>
-                        <div><a href="controller4.html"><img src="../static/img/风机.png"/><p>风机</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                        <div><a href="controller5.html"><img src="../static/img/湿帘水泵.png"/><p>水帘水泵</p></a></div>
-                        <div><a href="controller6.html"><img src="../static/img/补水泵.png"/><p>水帘补水</p></a></div>
-                        <div><a href="controller7.html"><img src="../static/img/水池.png"/><p>水池补水</p></a></div>
-                        <div><a href="controller8.html"><img src="../static/img/水泵.png"/><p>灌溉水泵</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                        <div><a href="controller9.html"><img src="../static/img/水泵.png"/><p>水培水泵</p></a></div>
-                        <div><a href="controller10.html"><img src="../static/img/施肥.png"/><p>施肥泵</p></a></div>
-                        <div><a href="controller11.html"><img src="../static/img/增氧.png"/><p>增氧机</p></a></div>
-                        <div><a href="controller12.html"><img src="../static/img/照明.png"/><p>照明</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                        <div><a href="controller13.html"><img src="../static/img/灌溉作业管理.png"/><p>苗床灌溉</p></a></div>
-                        <div><a href="controller14.html"><img src="../static/img/烧烤 热风-01.png"/><p>热风机</p></a></div>
-                        <div><a href="controller15.html"><img src="../static/img/显示屏.png"/><p>显示屏</p></a></div>
-                        <div><a href="#"><img src="../static/img/更多.png"/><p></p></a></div>
-
-                    </div>
-                
-            </div>
+            
         </div>
 
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
