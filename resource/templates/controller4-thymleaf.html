@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>风机</title>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/vue-easytable/umd/css/index.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="header">
+            <nav class="navbar navbar-default " role="navigation"> 
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                            <span class="sr-only">展开导航</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                        </button>
+                        <a class="navbar-brand" href="#">智慧农业</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="menu">
+                        <ul class="nav navbar-nav">
+                            <li ><a href="device.html">环境监控</a></li>
+                            <li class="active"><a href="controller.html">环境控制</a></li>
+                            <li><a href="#">设备管理</a></li>
+                            <li><a href="#">视频监控</a></li>
+                            <li><a href="#">系统设置</a></li>
+                            <li><a href="#">日志记录</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <h4 style="text-align:center">风机</h4>
+        
+        <div id="app">
+            <template>
+                <v-table is-horizontal-resize
+                style="width:100%" :min-height="200" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff" @on-custom-comp="customCompFunc"></v-table>
+            </template>
+            </div>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- 引入Vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/vue-easytable/umd/js/index.js"></script>
+    <script th:src="@{/js/controller4.js}"></script>
+</body>
+</html>

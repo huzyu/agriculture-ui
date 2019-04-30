@@ -25,12 +25,12 @@ var Main ={
             console.log(params);
 
             if (params.type === 'open'){ 
-                alert(`行号：${params.index+1} 开!`)
+                alert(`行号：${params.index+1} 正!`)
                 
             }else if (params.type === 'close'){ 
-                alert(`行号：${params.index+1} 关!`)
-            }else if (params.type === 'stop'){ 
-                alert(`行号：${params.index+1} 停!`)               
+                alert(`行号：${params.index+1} 停!`)
+            }else if (params.type === 'reverse'){ 
+                alert(`行号：${params.index+1} 反!`)               
             }
 
         }
@@ -40,9 +40,9 @@ var Main ={
 // 自定义列组件
 Vue.component('table-operation',{
     template:`<span>
-    <a href="" @click.stop.prevent="open(rowData,index)">开</a>&nbsp;
-    <a href="" @click.stop.prevent="close(rowData,index)">关</a>&nbsp;
-    <a href="" @click.stop.prevent="stop(rowData,index)">停</a>
+    <a href="" @click.stop.prevent="open(rowData,index)">正</a>&nbsp;
+    <a href="" @click.stop.prevent="close(rowData,index)">停</a>&nbsp;
+    <a href="" @click.stop.prevent="reverse(rowData,index)">反</a>
     </span>`,
     props:{
         rowData:{
@@ -71,12 +71,12 @@ Vue.component('table-operation',{
             this.$emit('on-custom-comp',params);
             
         },
-        stop(){
+        reverse(){
 
             // 参数根据业务场景随意构造
-            let params = {type:'stop',index:this.index};
+            let params = {type:'reverse',index:this.index,rowData:this.rowData};
             this.$emit('on-custom-comp',params);
-           
+            
         }
     }
 })

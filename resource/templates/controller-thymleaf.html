@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Title</title>
+    <link rel="shortcut icon" href="../static/img/farm.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/device.css}"type="text/css"  rel="stylesheet"/>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-default " role="navigation"> 
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                        <span class="sr-only">展开导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                    </button>
+                    <a class="navbar-brand" href="#">智慧农业</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li ><a href="device.html">环境监控</a></li>
+                        <li class="active"><a href="controller.html">环境控制</a></li>
+                        <li><a href="#">设备管理</a></li>
+                        <li><a href="#">视频监控</a></li>
+                        <li><a href="#">系统设置</a></li>
+                        <li><a href="#">日志记录</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container" >
+        
+            <div class=" right" >
+                    <br/>
+                <h3>环境控制</h3>
+                
+                    <div class="kongzhi">
+                        <div><a href="controller1.html"><img th:src="@{/img/电动遮阳.png}"/><p>外遮阳</p></a></div>
+                        <div><a href="controller2.html"><img th:src="@{/img/电动遮阳.png}"/><p>内遮阳</p></a></div>
+                        <div><a href="controller3.html"><img th:src="@{/img/通风卷帘.png}"/><p>顶通风</p></a></div>
+                        <div><a href="controller4.html"><img th:src="@{/img/风机.png}"/><p>风机</p></a></div>
+                    </div>
+                    <div class="kongzhi">
+                        <div><a href="controller5.html"><img th:src="@{/img/湿帘水泵.png}"/><p>水帘水泵</p></a></div>
+                        <div><a href="controller6.html"><img th:src="@{/img/补水泵.png}"/><p>水帘补水</p></a></div>
+                        <div><a href="controller7.html"><img th:src="@{/img/水池.png}"/><p>水池补水</p></a></div>
+                        <div><a href="controller8.html"><img th:src="@{/img/水泵.png}"/><p>灌溉水泵</p></a></div>
+                    </div>
+                    <div class="kongzhi">
+                        <div><a href="controller9.html"><img th:src="@{/img/水泵.png}"/><p>水培水泵</p></a></div>
+                        <div><a href="controller10.html"><img th:src="@{/img/施肥.png}"/><p>施肥泵</p></a></div>
+                        <div><a href="controller11.html"><img th:src="@{/img/增氧.png}"/><p>增氧机</p></a></div>
+                        <div><a href="controller12.html"><img th:src="@{/img/照明.png}"/><p>照明</p></a></div>
+                    </div>
+                    <div class="kongzhi">
+                        <div><a href="controller13.html"><img th:src="@{/img/灌溉作业管理.png}"/><p>苗床灌溉</p></a></div>
+                        <div><a href="controller14.html"><img th:src="@{/img/烧烤 热风-01.png}"/><p>热风机</p></a></div>
+                        <div><a href="controller15.html"><img src="@{/img/显示屏.png}"/><p>显示屏</p></a></div>
+                        <div><a href="#"><img th:src="@{/img/更多.png}"/><p></p></a></div>
+
+                    </div>
+                
+            </div>
+        </div>
+
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
