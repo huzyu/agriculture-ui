@@ -23,14 +23,17 @@ var Main ={
         customCompFunc(params){
 
             console.log(params);
-
+            let num = +params.index;
             if (params.type === 'open'){ 
                 alert(`行号：${params.index+1} 正!`)
                 
+                document.getElementsByTagName("img")[num].src="../static/img/绿灯.png"
             }else if (params.type === 'close'){ 
                 alert(`行号：${params.index+1} 停!`)
+                document.getElementsByTagName("img")[num].src="../static/img/灯泡.png"
             }else if (params.type === 'reverse'){ 
-                alert(`行号：${params.index+1} 反!`)               
+                alert(`行号：${params.index+1} 反!`)
+                document.getElementsByTagName("img")[num].src="../static/img/绿灯.png"               
             }
 
         }
@@ -40,6 +43,7 @@ var Main ={
 // 自定义列组件
 Vue.component('table-operation',{
     template:`<span>
+    <img src="../static/img/灯泡.png"  class="light">
     <a href="" @click.stop.prevent="open(rowData,index)">正</a>&nbsp;
     <a href="" @click.stop.prevent="close(rowData,index)">停</a>&nbsp;
     <a href="" @click.stop.prevent="reverse(rowData,index)">反</a>
