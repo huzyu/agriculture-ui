@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+		<meta name="renderer" content="webkit">
+		<title>视频监控</title>
+		<style>
+			body{margin:0;text-align: center;}
+			video{max-width: 1200px;width: 100%;}
+		</style>
+	</head>
+	<script>
+	</script>
+	<body>
+		<script src="https://open.ys7.com/sdk/js/1.3/ezuikit.js"></script>
+		
+		<video id="myPlayer1" poster="" controls playsInline webkit-playsinline autoplay>
+			<source src="rtmp://rtmp.open.ys7.com/openlive/eed7c64a758f44fc9df913a6f5692423" type="" />
+			<source src="http://hls.open.ys7.com/openlive/eed7c64a758f44fc9df913a6f5692423.m3u8" type="application/x-mpegURL" />
+		
+		</video>
+		<br/>
+		<video id="myPlayer2" poster="" controls playsInline webkit-playsinline autoplay>
+			<source src="rtmp://rtmp.open.ys7.com/openlive/eb7919185569433886460a2ca6764017" type="" />
+			<source src="http://hls.open.ys7.com/openlive/eb7919185569433886460a2ca6764017.m3u8" type="application/x-mpegURL" />
+		
+		</video>
+		
+		<script>
+            var player = new EZUIPlayer('myPlayer1');
+            player.on('error', function(){
+                console.log('error');
+            });
+            player.on('play', function(){
+                console.log('play');
+            });
+            player.on('pause', function(){
+                console.log('pause');
+            });
+		
+		
+            var player = new EZUIPlayer('myPlayer2');
+            player.on('error', function(){
+                console.log('error');
+            });
+            player.on('play', function(){
+                console.log('play');
+            });
+            player.on('pause', function(){
+                console.log('pause');
+            });
+		
+		</script>
+	</body>
+</html>

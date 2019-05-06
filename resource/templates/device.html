@@ -26,7 +26,7 @@
                         <li class="active"><a href="device.html">环境监控</a></li>
                         <li><a href="controller.html">环境控制</a></li>
                         <li><a href="#">设备管理</a></li>
-                        <li><a href="#">视频监控</a></li>
+                        <li><a th:href="@{/videomonitor}" target="_blank">视频监控</a></li>
                         <li><a href="#">系统设置</a></li>
                         <li><a href="#">日志记录</a></li>
                     </ul>
@@ -42,32 +42,32 @@
             <div class="pengnei">
                 <h4>棚内环境</h4>
                 <div class="huanjing">
-                    <div ><img src="../static/img/温度.png"/><p>温度1：<span class="airTemp" id="1b6400airTemp"></span>℃</p></div>
-                    <div ><img src="../static/img/湿度.png"/><p>湿度1：<span class="airHumidity" id="1b6400airHumidity"></span></p></div>
-                    <div ><img src="../static/img/温度.png"/><p>温度2：<span></span></p></div>
-                    <div ><img src="../static/img/湿度.png"/><p>湿度2：<span></span></p></div>               
+                    <div ><img src="../static/img/温度.png"/><p>温度1：<span id="1b64airTemp"></span>℃</p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>湿度1：<span id="1b64airHumidity"></span></p></div>
+                    <div ><img src="../static/img/温度.png"/><p>温度2：<span id="0003airTemp"></span>℃</p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>湿度2：<span id="0003airHumidity"></span></p></div>               
                 </div>
                 <div class="huanjing">
-                    <div ><img src="../static/img/温度.png"/><p>温度3：<span></span></p></div>  
-                    <div ><img src="../static/img/湿度.png"/><p>湿度3：<span></span></p></div>          
-                    <div ><img src="../static/img/温度.png"/><p>温度4：<span></span></p></div>
-                    <div ><img src="../static/img/湿度.png"/><p>湿度4：<span></span></p></div>
+                    <div ><img src="../static/img/温度.png"/><p>温度3：<span id="0004airTemp"></span>℃</p></div>  
+                    <div ><img src="../static/img/湿度.png"/><p>湿度3：<span id="0004airHumidity"></span></p></div>          
+                    <div ><img src="../static/img/温度.png"/><p>温度4：<span id="0005airTemp"></span>℃</p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>湿度4：<span id="0005airHumidity"></span></p></div>
                 </div>
                 <div class="huanjing">
-                    <div ><img src="../static/img/温度.png"/><p>温度5：<span class="airTemp" id="1b6400airTemp"></span>℃</p></div>
-                    <div ><img src="../static/img/湿度.png"/><p>湿度5：<span class="airHumidity" id="1b6400airHumidity"></span></p></div>
+                    <div ><img src="../static/img/温度.png"/><p>温度5：<span id="0001airTemp"></span>℃</p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>湿度5：<span id="0001airHumidity"></span></p></div>
                 </div>
                 <div class="huanjing">
-                    <div ><img src="../static/img/光照度传感器.png"/><p class="1b66">光照：<span class="intensity" id="1b6402intensity"></span>klux</p></div>
-                    <div ><img src="../static/img/co2.png"/><p class="1b66">二氧化碳：<span class="concentration" id="1b6403concentration"></span>PPM</p></div>
-                    <div ><img src="../static/img/水温.png"/><p>水温：</p><span></span></div>
+                    <div ><img src="../static/img/光照度传感器.png"/><p>光照：<span id="1b64intensity"></span>klux</p></div>
+                    <div ><img src="../static/img/co2.png"/><p>二氧化碳：<span id="1b64concentration"></span>PPM</p></div>
+                    <div ><img src="../static/img/水温.png"/><p>水温：</p><span id="0002waterTemp">℃</span></div>
                     <div ><img src="../static/img/EC.png"/><p>EC值：</p><span></span></div>
                 </div>
                 <div class="huanjing">
-                    <div ><img src="../static/img/湿度.png"/><p class="1b66">土壤湿度1：<span class="soilHumidity" id="1b6401soilHumidity"></span></p></div>
-                    <div ><img src="../static/img/湿度.png"/><p>土壤湿度2：<span></span></p></div>
-                    <div ><img src="../static/img/湿度.png"/><p>土壤湿度3：<span></span></p></div>
-                    <div ><img src="../static/img/湿度.png"/><p>土壤湿度4：<span></span></p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>土壤湿度1：<span id="1b64soilHumidity"></span></p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>土壤湿度2：<span id="0003soilHumidity"></span></p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>土壤湿度3：<span id="0004soilHumidity"></span></p></div>
+                    <div ><img src="../static/img/湿度.png"/><p>土壤湿度4：<span id="0005soilHumidity"></span></p></div>
                 </div>
                 
             </div>
