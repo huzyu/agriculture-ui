@@ -4,7 +4,7 @@ UI for back-end project
 ```
 ─resource
     ├─static
-    │  ├─css
+    │  ├─asset
     │  │      device.css
     │  │      nav.css
     │  │

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home Title</title>
     <link rel="shortcut icon" th:href="@{/img/farm.ico}">
-    <link rel="shortcut icon" href="../static/img/farm.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
@@ -45,11 +44,12 @@
                 </div>
                 <div class="collapse navbar-collapse" id="menu">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">设备监控</a></li>
-                        <li><a href="#">设备管理</a></li>
-                        <li><a href="#">视频监控</a></li>
-                        <li><a href="#">系统设置</a></li>
-                        <li><a href="#">日志记录</a></li>
+						<li class="active"><a href="#">环境监控</a></li>
+						<li><a th:href="@{/controller}">环境控制</a></li>
+						<li><a href="#">设备管理</a></li>
+						<li><a th:href="@{/videomonitor}" target="_blank">视频监控</a></li>
+						<li><a href="#">系统设置</a></li>
+						<li><a href="#">日志记录</a></li>
                     </ul>
                 </div>
             </nav>
@@ -64,32 +64,32 @@
             <div class="pengnei">
                 <h4>棚内环境</h4>
                 <div class="huanjing">
-                    <div ><img th:src="@{/img/温度.png}"/><p class="1b66">温度1：<span class="airTemp"></span>℃</p></div>
-                    <div ><img th:src="@{/img/湿度.png}"/><p class="1b66">湿度1：<span class="airHumidity"></span></p></div>
-                    <div ><img th:src="@{/img/温度.png}"/><p>温度2：<span></span></p></div>
-                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度2：<span></span></p></div>               
+                    <div ><img th:src="@{/img/温度.png}"/><p>温度1：<span id="1b64airTemp"></span>℃</p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度1：<span id="1b64airHumidity"></span>%</p></div>
+                    <div ><img th:src="@{/img/温度.png}"/><p>温度2：<span id="0003airTemp"></span>℃</p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度2：<span id="0003airHumidity"></span>%</p></div>               
                 </div>
                 <div class="huanjing">
-                    <div ><img th:src="@{/img/温度.png}"/><p>温度3：<span></span></p></div>  
-                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度3：<span></span></p></div>          
-                    <div ><img th:src="@{/img/温度.png}"/><p>温度4：<span></span></p></div>
-                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度4：<span></span></p></div>
+                    <div ><img th:src="@{/img/温度.png}"/><p>温度3：<span id="0004airTemp"></span>℃</p></div>  
+                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度3：<span id="0004airHumidity"></span>%</p></div>          
+                    <div ><img th:src="@{/img/温度.png}"/><p>温度4：<span id="0005airTemp"></span>℃</p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度4：<span id="0005airHumidity"></span>%</p></div>
                 </div>
                 <div class="huanjing">
-                    <div ><img th:src="@{/img/温度.png}"/><p>温度5：<span class="airTemp"></span>℃</p></div>
-                    <div ><img th:src="@{/img/湿度.png}"/><p >湿度5：<span class="airHumidity"></span></p></div>            
+                    <div ><img th:src="@{/img/温度.png}"/><p>温度5：<span id="0001airTemp"></span>℃</p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>湿度5：<span id="0001airHumidity"></span>%</p></div>            
                 </div>
                 <div class="huanjing">
-                    <div ><img th:src="@{/img/光照度传感器.png}"/><p class="1b66">光照：<span class="intensity"></span>klux</p></div>
-                    <div ><img th:src="@{/img/co2.png}"/><p class="1b66">二氧化碳：<span class="concentration"></span>PPM</p></div>
-                    <div ><img th:src="@{/img/水温.png}"/><p>水温：</p><span></span></div>
+                    <div ><img th:src="@{/img/光照度传感器.png}"/><p>光照：<span id="1b64intensity"></span>klux</p></div>
+                    <div ><img th:src="@{/img/co2.png}"/><p>二氧化碳：<span id="1b64concentration"></span>PPM</p></div>
+                    <div ><img th:src="@{/img/水温.png}"/><p>水温：<span id="0002waterTemp"></span>℃</p></div>
                     <div ><img th:src="@{/img/EC.png}"/><p>EC值：</p><span></span></div>
                 </div>
                 <div class="huanjing">
-                    <div ><img th:src="@{/img/湿度.png}"/><p class="1b66">土壤湿度1：<span class="soilHumidity"></span></p></div>
-                    <div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度2：<span></span></p></div>
-                    <div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度3：<span></span></p></div>
-                    <div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度4：<span></span></p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度1：<span id="1b64soilHumidity"></span>%</p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度2：<span id="0003soilHumidity"></span>%</p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度3：<span id="0004soilHumidity"></span>%</p></div>
+                    <div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度4：<span id="0005soilHumidity"></span>%</p></div>
                 </div>
                 
             </div>
@@ -97,42 +97,14 @@
             <div class="qixiangzhan">
                 <h4 class="title">小型气象站</h4>
                 <div ><img th:src="@{/img/光照度传感器.png}"/><p>光照：</p><span></span></div>
-                <div ><img src="../static/img/风力.png"/><p>风力：</p><span></span></div>
-                <div ><img src="../static/img/降水.png"/><p>降水：</p><span></span></div>
+                <div ><img th:src="@{/img/风力.png}"/><p>风力：</p><span></span></div>
+                <div ><img th:src="@{/img/降水.png}"/><p>降水：</p><span></span></div>
                 <div ><img th:src="@{/img/温度.png}"/><p>温度：</p><span></span></div>
                 <div ><img th:src="@{/img/湿度.png}"/><p>湿度：</p><span></span></div>
             </div>
-            </div>
-            <div class=" right" >
-                    <br/>
-                <h3>环境控制</h3>
-                
-                    <div class="kongzhi">
-                        <div><a href="#"><img th:src="@{/img/电动遮阳.png}"/><p>外遮阳</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/电动遮阳.png}"/><p>内遮阳</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/通风卷帘.png}"/><p>顶通风</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/风机.png}"/><p>风机</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                        <div><a href="#"><img th:src="@{/img/湿帘水泵.png}"/><p>水帘水泵</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/补水泵.png}"/><p>水帘补水</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/水池.png}"/><p>水池补水</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/水泵.png}"/><p>灌溉水泵</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                        <div><a href="#"><img th:src="@{/img/水泵.png}"/><p>水培水泵</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/施肥.png}"/><p>施肥泵</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/增氧.png}"/><p>增氧机</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/照明.png}"/><p>照明</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                        <div><a href="#"><img th:src="@{/img/灌溉作业管理.png}"/><p>苗床灌溉</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/烧烤 热风-01.png}"/><p>热风机</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/显示屏.png}"/><p>显示屏</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/更多.png}"/><p></p></a></div>
-                    </div>
-                
-            </div>
+
+        </div>
+
         </div>
 
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
