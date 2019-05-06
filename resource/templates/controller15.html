@@ -45,6 +45,29 @@
                 style="width:100%" :min-height="200" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff" @on-custom-comp="customCompFunc"></v-table>
             </template>
             </div>
+
+            <div style="padding: 20px 20px 10px;">
+                <h4>自定义显示屏显示内容：</h5><br/>
+                <form class="bs-example bs-example-form" role="form" name="screen">
+                    
+                        <div class="input-group input-group-lg" >
+                                <span class="input-group-addon">上：</span>
+                                <input type="text" class="form-control" placeholder="可输入显示内容">
+                            </div><br>
+                        <br />
+                        <div>
+                            <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">下：</span>
+                                <input type="text" class="form-control"  name="down" placeholder="勾选可输入显示内容 ,默认显示环境参数" disabled>
+                                <span class="input-group-addon">
+                                    <input type="checkbox"  onclick="down.disabled=!this.checked">
+                                </span>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                        <br/>
+                        <button type="submit" class="btn btn-default btn-lg">提交</button>
+                </form>
+            </div>   
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- 引入Vue -->

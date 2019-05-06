@@ -72,3 +72,4 @@ Vue.component('table-operation',{
 })
 var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app')
+
