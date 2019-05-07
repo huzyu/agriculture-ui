@@ -22,14 +22,12 @@ var Main ={
         customCompFunc(params){
 
             console.log(params);
-
+            let num = +params.index;
             if (params.type === 'open'){ 
-                alert(`行号：${params.index+1} 开!`)
+                document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
                 
             }else if (params.type === 'close'){ 
-                alert(`行号：${params.index+1} 关!`)
-            }else if (params.type === 'stop'){ 
-                alert(`行号：${params.index+1} 停!`)               
+                document.getElementsByClassName("light1")[num].style.webkitFilter="";
             }
 
         }
@@ -39,6 +37,7 @@ var Main ={
 // 自定义列组件
 Vue.component('table-operation',{
     template:`<span>
+    <img src="../static/img/灯泡.png"  class="light1">
     <a href="" @click.stop.prevent="open(rowData,index)">开</a>&nbsp;
     <a href="" @click.stop.prevent="close(rowData,index)">关</a>
     </span>`,
