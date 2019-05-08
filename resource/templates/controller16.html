@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>施肥泵</title>
+    <title>苗床灌溉</title>
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/vue-easytable/umd/css/index.css">
     <style>
 .light1, .light2 {width: 1.5em;}
-
     </style>
 </head>
 <body>
@@ -38,20 +37,23 @@
                 </nav>
             </div>
         </div>
-        <h4 style="text-align:center">施肥泵</h4>
+        <h4 style="text-align:center">苗床灌溉</h4>
+        <button type="button" class="btn btn-default" ><a href="controller13.html"> 1 - 30</a></button>
         
         <div id="app">
             <template>
-                <v-table is-horizontal-resize
-                style="width:100%" :min-height="200" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff" @on-custom-comp="customCompFunc"></v-table>
+                <div>
+                    <v-table is-horizontal-resize
+                    style="width:100%" :min-height="200" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff" @on-custom-comp="customCompFunc"></v-table>
+                </div>
             </template>
-            </div>
+        </div>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- 引入Vue -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/vue-easytable/umd/js/index.js"></script>
-    <script src="../static/js/con10.js"></script>
+    <script src="../static/js/con16.js"></script>
 </body>
 </html>

@@ -26,34 +26,49 @@ websocket.onmessage = function (event) {
 function displayMsg(innerHtml) {
     var msg = JSON.parse(innerHtml);
     console.log(msg);
-    for(i in msg.list){
-        var dataType = msg.list[i].dataType;
-        var idSelector = msg.list[i].loraNodeId;
-        switch(dataType){
-            case 0:
-                //温湿度数据
-                $("#"+idSelector+"airTemp").text(msg.list[i].airTemp);
-                $("#"+idSelector+"airHumidity").text(msg.list[i].airHumidity);
-                break;
-            case 1:
-                //土壤湿度
-                $("#"+idSelector+"soilHumidity").text(msg.list[i].soilHumidity);
-                break;
-            case 2:
-                //光照
-                $("#"+idSelector+"intensity").text(msg.list[i].intensity);
-                break;
-            case 3:
-                //CO2
-                $("#"+idSelector+"concentration").text(msg.list[i].concentration);
-                break;
-            case 19:
-                //水温
-                $("#"+idSelector+"waterTemp").text(msg.list[i].waterTemp);
-                break;
-            
+
+    if ( "list" in msg) {
+        for(let i in msg.list){
+            var dataType = msg.list[i].dataType;
+            var idSelector = msg.list[i].loraNodeId;
+            switch(dataType){
+                case 0:
+                    //温湿度数据
+                    $("#"+idSelector+"airTemp").text(msg.list[i].airTemp);
+                    $("#"+idSelector+"airHumidity").text(msg.list[i].airHumidity);
+                    break;
+                case 1:
+                    //土壤湿度
+                    $("#"+idSelector+"soilHumidity").text(msg.list[i].soilHumidity);
+                    break;
+                case 2:
+                    //光照
+                    $("#"+idSelector+"intensity").text(msg.list[i].intensity);
+                    break;
+                case 3:
+                    //CO2
+                    $("#"+idSelector+"concentration").text(msg.list[i].concentration);
+                    break;
+                case 19:
+                    //水温
+                    $("#"+idSelector+"waterTemp").text(msg.list[i].waterTemp);
+                    break;
+                
+            }
         }
-    }}
+    }
+    else if("errorStatus" in msg){
+        var err = msg.errorStatus;
+        console.log(err);
+        for(let i in err) {
+            if(err[i]) {
+            document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
+            }
+        }
+        
+    }
+}
+
 
 //连接关闭的回调方法
 websocket.onclose = function () {
@@ -65,7 +80,10 @@ window.onbeforeunload = function () {
     closeWebSocket();
 };
 
-//关闭WebSocket连接
+关闭WebSocket连接
 function closeWebSocket() {
     websocket.close();
+}
+
+
 }

@@ -41,8 +41,8 @@ var Ctor =Vue.extend({
                     {
                         field: 'custome', title:'序号', width: 50, titleAlign: 'center', columnAlign: 'center',
                         formatter: function (rowData,rowIndex,pagingIndex,field) {
-                            return  rowIndex + 1 
-                           
+                            return  rowIndex + 31 
+                             
                         }, isFrozen: true,isResize:true
                     },
                     {field: 'votage', title: '电压', width: 80, titleAlign: 'center', columnAlign: 'center',isResize:true},
@@ -75,7 +75,7 @@ var Ctor =Vue.extend({
             let fUrl = "device/device_control";
             let info = {};
             if (params.type === 'open'){ 
-                info.frameName = 2*num+40 ;
+                info.frameName = 2*num+100 ;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -90,7 +90,7 @@ var Ctor =Vue.extend({
             console.log(info);
             document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }else if (params.type === 'close'){ 
-                info.frameName = 2*num+41;
+                info.frameName = 2*num+101;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',

@@ -7,7 +7,18 @@
     <link rel="shortcut icon" href="../static/img/farm.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/device.css"type="text/css"  rel="stylesheet"/>
+    <link href="../static/asset/device.css"type="text/css"  rel="stylesheet"/>
+    <style type="text/css">
+
+    .deng, .deng div{display:inline-block;margin: 5px;}
+    .deng {margin-left: 30px;}
+    .deng img{
+        width: 2em;
+    }
+    .err {margin: 0 10%;}
+    caption{font-size: 2em;}
+    caption img{width: 2em;}
+    </style>
 </head>
 <body>
     <div class="header">
@@ -83,7 +94,104 @@
             </div>
             
         </div>
+        <div class="err">
+        <table class="table table-striped">
+            <caption>故障信息 <img id="fengMingQi" src="../static/img/灯泡.png"/></caption>
+            <tbody>
+                <tr>
+                    <td><div class="deng">
+                        <span>外遮阳#1</span>
+                        <div><p>电机故障</p><img id="waiZheYang1_MotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>正转故障</p><img id="waiZheYang1_Forward_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                        <div><p>反转故障</p><img id="waiZheYang1_Reverse_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span>&nbsp;风机#1</span>
+                        <div><p>电机故障</p><img id="fengJi1_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="fengJi1_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span> 增氧机</span>
+                        <div><p>电机故障</p><img id="zengYangJi_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="zengYangJi_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><div class="deng">
+                        <span>外遮阳#2</span>
+                        <div><p>电机故障</p><img id="waiZheYang2_MotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>正转故障</p><img id="waiZheYang2_Forward_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                        <div><p>反转故障</p><img id="waiZheYang2_Reverse_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span>&nbsp;风机#2</span>
+                        <div><p>电机故障</p><img id="fengJi2_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="fengJi2_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span>&nbsp;热风机</span>
+                        <div><p>电机故障</p><img id="reFengJi_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="reFengJi_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><div class="deng">
+                        <span>内遮阳#1</span>
+                        <div><p>电机故障</p><img id="reiZheYang1_MotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>正转故障</p><img id="reiZheYang1_Forward_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                        <div><p>反转故障</p><img id="reiZheYang1_Reverse_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td> <div class="deng">
+                        <span>灌溉水泵</span>
+                        <div><p>电机故障</p><img id="guanGaiShuiBeng_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="guanGaiShuiBeng_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span> &nbsp;照明#1</span>
+                        <div><p>电机故障</p><img id="zhaoMing1_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="zhaoMing1_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                </tr>
 
+                <tr>
+                    <td><div class="deng">
+                        <span>内遮阳#2</span>
+                        <div><p>电机故障</p><img id="neiZheYang2_MotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>正转故障</p><img id="neiZheYang2_Forward_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                        <div><p>反转故障</p><img id="neiZheYang2_Reverse_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span>水培水泵</span>
+                        <div><p>电机故障</p><img id="shuiPeiShuiBeng_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="shuiPeiShuiBeng_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span> &nbsp;照明#2</span>
+                        <div><p>电机故障</p><img id="zhaoMing2_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="zhaoMing2_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                </tr>
+
+                <tr>
+                    <td><div class="deng">
+                        <span> &nbsp;顶通风</span>
+                        <div><p>电机故障</p><img id="dingTongFeng_MotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>正转故障</p><img id="dingTongFeng_Forward_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                        <div><p>反转故障</p><img id="dingTongFeng_Reverse_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span>&nbsp; 施肥泵</span>
+                        <div><p>电机故障</p><img id="shiFeiBeng_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="shiFeiBeng_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                    <td><div class="deng">
+                        <span> &nbsp;LED&nbsp; </span>
+                        <div><p>电机故障</p><img id="led_SwitchMotorFault" src="../static/img/灯泡.png"/></div>
+                        <div><p>反馈故障</p><img id="led_Feedback_Fault_Output" src="../static/img/灯泡.png"/></div>
+                    </div></td>
+                </tr>
+            </tbody>
+        </div>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../static/js/device-ws.js"></script>
