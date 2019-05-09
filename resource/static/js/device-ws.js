@@ -56,8 +56,8 @@ function displayMsg(innerHtml) {
             }
         }
     }
-    else if("errorStatus" in msg){
-        var err = msg.errorStatus;
+    else if("erro" in msg){
+        var err = msg.erro;
         console.log(err);
         for(let i in err) {
             if(err[i]) {
