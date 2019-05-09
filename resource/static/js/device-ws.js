@@ -62,6 +62,8 @@ function displayMsg(innerHtml) {
         for(let i in err) {
             if(err[i]) {
                 document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
+            } else {
+                document.getElementById(i).style.webkitFilter=""
             }
         }
     }
