@@ -57,8 +57,8 @@ function displayMsg(innerHtml) {
             }
         }
     }
-    else if("errorStatus" in msg){
-        var err = msg.errorStatus;
+    else if("erro" in msg){
+        var err = msg.erro;
         console.log(err);
         for(let i in err) {
             if(err[i]) {
@@ -66,6 +66,14 @@ function displayMsg(innerHtml) {
             }
         }
         
+    }
+    else if("weat" in msg) {
+        var weat = msg.weat;
+        console.log(weat);
+        for(let i in weat) {
+            console.log(weat[i])
+           $("#"+i).text(weat[i]);
+        }
     }
 }
 
@@ -86,4 +94,3 @@ function closeWebSocket() {
 }
 
 
-}

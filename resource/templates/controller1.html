@@ -8,8 +8,16 @@
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/vue-easytable/umd/css/index.css" >
+    <link href="../static/asset/demo.css"type="text/css"  rel="stylesheet"/>
     <style>
  .light1, .light2 {width: 1.5em;}
+ .iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
     </style>
 </head>
 <body>
@@ -38,7 +46,7 @@
             </div>
         </div>
         <h4 style="text-align:center">外遮阳</h4>
-        
+        <img src="../static/img/灯泡.png" style="display : none" id="img">
         <div id="app">
             <template>
                 <v-table is-horizontal-resize

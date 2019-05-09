@@ -26,7 +26,7 @@ var Main ={
             let fUrl = "device/device_control";
             let info = {};
             if (params.type === 'open'){ 
-                info.frameName = 19 ;
+                info.id = 19 ;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -41,7 +41,7 @@ var Main ={
             console.log(info);
             document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }else if (params.type === 'close'){ 
-                info.frameName = 20;
+                info.id = 20;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
