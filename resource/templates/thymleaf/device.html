@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Home Title</title>
+		<link rel="shortcut icon" th:href="@{/img/farm.ico}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			.left ,.right{background-color:#F7F7F7;margin: 10px;color:#6F6F6F;float: none; text-align:center;}
+			.qixiangzhan{border:1px solid #000;margin: 5%;}
+			.qixiangzhan img{width: 50px;}
+			.qixiangzhan div{display:inline-block;margin-left: 30px;}
+			.pengnei img{width: 50px;}
+			.left h4{text-align: center}
+			.kongzhi p{text-align: center}
+			.kongzhi div{display: inline-block;margin: 5%}
+			.huanjing div{display: inline-block;margin: 3%}
+			.right img{width: 50px;}
+			.kongzhi a {text-decoration: none}
+			.navbar-nav {
+				float: none;
+				text-align:center;
+			}
+			ul.nav.navbar-nav  li {
+				float:none;
+				display: inline-block;
+				margin: 0em;
+			}
+			.deng, .deng div{display:inline-block;margin: 5px;}
+			.deng {margin-left: 30px;}
+			.deng img{
+				width: 2em;
+			}
+			.err {margin: 0 10%;}
+			caption{font-size: 2em;}
+			caption img{width: 2em;}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<nav class="navbar navbar-default " role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+						<span class="sr-only">展开导航</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">智慧农业</a>
+				</div>
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">环境监控</a></li>
+						<li><a th:href="@{/controller}" target="_blank">环境控制</a></li>
+						<li><a href="#">设备管理</a></li>
+						<li><a th:href="@{/videomonitor}" target="_blank">视频监控</a></li>
+						<li><a href="#">系统设置</a></li>
+						<li><a href="#">日志记录</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		</div>
+		
+		<div class="container">
+			
+			<div class=" left" >
+				<br/>
+				<h3>环境监控</h3>
+				<div class="pengnei">
+					<h4>棚内环境</h4>
+					<div class="huanjing">
+						<div ><img th:src="@{/img/温度.png}"/><p>温度1：<span id="1b64airTemp"></span>℃</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>湿度1：<span id="1b64airHumidity"></span></p></div>
+						<div ><img th:src="@{/img/温度.png}"/><p>温度2：<span id="0003airTemp"></span>℃</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>湿度2：<span id="0003airHumidity"></span></p></div>
+					</div>
+					<div class="huanjing">
+						<div ><img th:src="@{/img/温度.png}"/><p>温度3：<span id="0004airTemp"></span>℃</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>湿度3：<span id="0004airHumidity"></span></p></div>
+						<div ><img th:src="@{/img/温度.png}"/><p>温度4：<span id="0005airTemp"></span>℃</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>湿度4：<span id="0005airHumidity"></span></p></div>
+					</div>
+					<div class="huanjing">
+						<div ><img th:src="@{/img/温度.png}"/><p>温度5：<span id="0001airTemp"></span>℃</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>湿度5：<span id="0001airHumidity"></span></p></div>
+					</div>
+					<div class="huanjing">
+						<div ><img th:src="@{/img/光照度传感器.png}"/><p>光照：<span id="1b64intensity"></span>klux</p></div>
+						<div ><img th:src="@{/img/co2.png}"/><p>二氧化碳：<span id="1b64concentration"></span>PPM</p></div>
+						<div ><img th:src="@{/img/水温.png}"/><p>水温：<span id="0002waterTemp"></span>℃</p></div>
+						<div ><img th:src="@{/img/EC.png}"/><p>EC值：<span id="ecValue"></span></p></div>
+					</div>
+					<div class="huanjing">
+						<div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度1：<span id="1b64soilHumidity"></span>%</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度2：<span id="0003soilHumidity"></span>%</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度3：<span id="0004soilHumidity"></span>%</p></div>
+						<div ><img th:src="@{/img/湿度.png}"/><p>土壤湿度4：<span id="0005soilHumidity"></span>%</p></div>
+					</div>
+				
+				</div>
+				
+				<div class="qixiangzhan">
+					<h4 class="title">小型气象站</h4>
+					<div ><img th:src="@{/img/光照度传感器.png}"/><span id="weatherIntensity"></span>klux</p></div>
+					<div ><img th:src="@{/img/风力.png}"/><p>风力：<span id="windSpeed"></span></p><span></span></div>
+					<div ><img th:src="@{/img/降水.png}"/><p>降水：<span id="rainOrSnow"></span></p><span></span></div>
+					<div ><img th:src="@{/img/温度.png}"/><p>温度：<span id="weatherTemp"></span></p><span></span></div>
+					<div ><img th:src="@{/img/湿度.png}"/><p>湿度：<span id="weatherHumidity"></span></p><span></span></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="err">
+			<table class="table table-striped">
+				<caption>故障信息 <img id="fengMingQi" th:src="@{/img/灯泡.png}"/></caption>
+				<tbody>
+					<tr>
+						<td><div class="deng">
+							<span>外遮阳#1</span>
+							<div><p>电机故障</p><img id="waiZheYang1_MotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>正转故障</p><img id="waiZheYang1_Forward_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反转故障</p><img id="waiZheYang1_Reverse_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span>&nbsp;风机#1</span>
+							<div><p>电机故障</p><img id="fengJi1_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="fengJi1_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span> 增氧机</span>
+							<div><p>电机故障</p><img id="zengYangJi_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="zengYangJi_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+					</tr>
+					<tr>
+						<td><div class="deng">
+							<span>外遮阳#2</span>
+							<div><p>电机故障</p><img id="waiZheYang2_MotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>正转故障</p><img id="waiZheYang2_Forward_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反转故障</p><img id="waiZheYang2_Reverse_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span>&nbsp;风机#2</span>
+							<div><p>电机故障</p><img id="fengJi2_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="fengJi2_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span>&nbsp;热风机</span>
+							<div><p>电机故障</p><img id="reFengJi_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="reFengJi_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+					</tr>
+					<tr>
+						<td><div class="deng">
+							<span>内遮阳#1</span>
+							<div><p>电机故障</p><img id="reiZheYang1_MotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>正转故障</p><img id="reiZheYang1_Forward_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反转故障</p><img id="reiZheYang1_Reverse_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td> <div class="deng">
+							<span>灌溉水泵</span>
+							<div><p>电机故障</p><img id="guanGaiShuiBeng_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="guanGaiShuiBeng_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span> &nbsp;照明#1</span>
+							<div><p>电机故障</p><img id="zhaoMing1_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="zhaoMing1_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+					</tr>
+					
+					<tr>
+						<td><div class="deng">
+							<span>内遮阳#2</span>
+							<div><p>电机故障</p><img id="neiZheYang2_MotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>正转故障</p><img id="neiZheYang2_Forward_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反转故障</p><img id="neiZheYang2_Reverse_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span>水培水泵</span>
+							<div><p>电机故障</p><img id="shuiPeiShuiBeng_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="shuiPeiShuiBeng_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span> &nbsp;照明#2</span>
+							<div><p>电机故障</p><img id="zhaoMing2_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="zhaoMing2_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+					</tr>
+					
+					<tr>
+						<td><div class="deng">
+							<span> &nbsp;顶通风</span>
+							<div><p>电机故障</p><img id="dingTongFeng_MotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>正转故障</p><img id="dingTongFeng_Forward_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反转故障</p><img id="dingTongFeng_Reverse_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span>&nbsp; 施肥泵</span>
+							<div><p>电机故障</p><img id="shiFeiBeng_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="shiFeiBeng_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+						<td><div class="deng">
+							<span> &nbsp;LED&nbsp; </span>
+							<div><p>电机故障</p><img id="led_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="led_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script th:src="@{/js/device-ws.js}"></script>
+	</body>
+</html>

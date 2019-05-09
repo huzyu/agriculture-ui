@@ -27,7 +27,7 @@ var Main ={
             let fUrl = "device/device_control";
             let info = {};
             if (params.type === 'open'){ 
-                info.frameName = 3*num+1 ;
+                info.id = 3*num+1 ;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -42,7 +42,7 @@ var Main ={
             console.log(info);
             document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }else if (params.type === 'close'){ 
-                info.frameName = 3*num+2 ;
+                info.id = 3*num+2 ;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -58,7 +58,7 @@ var Main ={
                 document.getElementsByClassName("light1")[num].style.webkitFilter="";
                 document.getElementsByClassName("light2")[num].style.webkitFilter="";
             }else if (params.type === 'reverse'){ 
-                info.frameName = 3*num+3 ;
+                info.id = 3*num+3 ;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -81,10 +81,10 @@ var Main ={
 // 自定义列组件
 Vue.component('table-operation',{
     template:`<span>
-    <img src="../static/img/灯泡.png"  class="light1">
+    <img src="img/灯泡.png"  class="light1">
     <a href="" @click.stop.prevent="open(rowData,index)">正</a>&nbsp;
     <a href="" @click.stop.prevent="close(rowData,index)">停</a>&nbsp;
-    <img src="../static/img/灯泡.png"  class="light2">
+    <img src="img/灯泡.png"  class="light2">
     <a href="" @click.stop.prevent="reverse(rowData,index)">反</a>
     </span>`,
     props:{

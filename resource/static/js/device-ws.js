@@ -2,7 +2,7 @@ var websocket = null;
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
     //本地：ws://localhost:6060/farm/pull 部署：ws://106.14.139.125:6060/farm/pull
-    websocket = new WebSocket("ws://localhost:6060/farm/pull");
+    websocket = new WebSocket("ws://106.14.139.125:6060/farm/pull");
 }else {
     alert('当前浏览器 Not support websocket')
 }
@@ -26,7 +26,6 @@ websocket.onmessage = function (event) {
 function displayMsg(innerHtml) {
     var msg = JSON.parse(innerHtml);
     console.log(msg);
-
     if ( "list" in msg) {
         for(let i in msg.list){
             var dataType = msg.list[i].dataType;
@@ -62,13 +61,19 @@ function displayMsg(innerHtml) {
         console.log(err);
         for(let i in err) {
             if(err[i]) {
-            document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
+                document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
             }
         }
-        
+    }
+    else if("weat" in msg) {
+        var weat = msg.weat;
+        console.log(weat);
+        for(let i in weat) {
+            console.log(weat[i])
+            $("#"+i).text(weat[i]);
+        }
     }
 }
-
 
 //连接关闭的回调方法
 websocket.onclose = function () {
@@ -80,10 +85,7 @@ window.onbeforeunload = function () {
     closeWebSocket();
 };
 
-关闭WebSocket连接
+//关闭WebSocket连接
 function closeWebSocket() {
     websocket.close();
-}
-
-
 }

@@ -10,7 +10,7 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/vue-easytable/umd/css/index.css">
     <style>
- .light {width: 1.5em;}
+        .light1,.light2 {width: 1.5em;}
     </style>
 </head>
 <body>
@@ -27,8 +27,8 @@
                     </div>
                     <div class="collapse navbar-collapse" id="menu">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">环境监控</a></li>
-                            <li><a th:href="@{/controller}" target="_blank">环境控制</a></li>
+                            <li ><a th:href="@{/device}">环境监控</a></li>
+                            <li class="active"><a th:href="@{/controller}">环境控制</a></li>
                             <li><a href="#">设备管理</a></li>
                             <li><a th:href="@{/videomonitor}" target="_blank">视频监控</a></li>
                             <li><a href="#">系统设置</a></li>
