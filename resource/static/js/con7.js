@@ -64,7 +64,7 @@ var Main ={
 // 自定义列组件
 Vue.component('table-operation',{
     template:`<span>
-    <img src="../static/img/灯泡.png"  class="light1">
+    <img src="img/灯泡.png"  class="light1">
     <a href="" @click.stop.prevent="open(rowData,index)">开</a>&nbsp;
     <a href="" @click.stop.prevent="close(rowData,index)">关</a>
     </span>`,

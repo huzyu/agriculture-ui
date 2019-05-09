@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>显示屏</title>
+    <title>增氧机</title>
     <link rel="shortcut icon" th:href="@{/img/farm.ico}">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/vue-easytable/umd/css/index.css">
     <style>
-
+        .light1,.light2 {width: 1.5em;}
     </style>
 </head>
 <body>
@@ -27,8 +27,8 @@
                     </div>
                     <div class="collapse navbar-collapse" id="menu">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">环境监控</a></li>
-                            <li><a th:href="@{/controller}" target="_blank">环境控制</a></li>
+                            <li ><a th:href="@{/device}">环境监控</a></li>
+                            <li class="active"><a th:href="@{/controller}">环境控制</a></li>
                             <li><a href="#">设备管理</a></li>
                             <li><a th:href="@{/videomonitor}" target="_blank">视频监控</a></li>
                             <li><a href="#">系统设置</a></li>
@@ -38,7 +38,7 @@
                 </nav>
             </div>
         </div>
-        <h4 style="text-align:center">显示屏</h4>
+        <h4 style="text-align:center">增氧机</h4>
         
         <div id="app">
             <template>
@@ -52,6 +52,6 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/vue-easytable/umd/js/index.js"></script>
-    <script th:src="@{/js/con15.js}"></script>
+    <script th:src="@{/js/con11.js}"></script>
 </body>
 </html>

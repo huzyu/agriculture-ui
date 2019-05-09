@@ -81,10 +81,10 @@ var Main ={
 // 自定义列组件
 Vue.component('table-operation',{
     template:`<span>
-    <img src="../static/img/灯泡.png"  class="light1">
+    <img src="img/灯泡.png"  class="light1">
     <a href="" @click.stop.prevent="open(rowData,index)">正</a>&nbsp;
     <a href="" @click.stop.prevent="close(rowData,index)">停</a>&nbsp;
-    <img src="../static/img/灯泡.png"  class="light2">
+    <img src="img/灯泡.png"  class="light2">
     <a href="" @click.stop.prevent="reverse(rowData,index)">反</a>
     </span>`,
     props:{
