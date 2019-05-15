@@ -11,9 +11,9 @@
     <script>
         window.addEventListener("storage", function (e) {
             if (e.newValue!=null) {
-                var msg = e.newValue;
+                var msg = JSON.parse(e.newValue);
                 console.log(msg);
-                console.log(msg.miaoChuangGuanGai54_ElectromagneticValveOutput);
+                console.log(msg.erro.miaoChuangGuanGai54_ElectromagneticValveOutput);
             }
         });
     </script>
