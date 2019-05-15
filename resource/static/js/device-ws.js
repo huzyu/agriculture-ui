@@ -25,6 +25,11 @@ websocket.onmessage = function (event) {
 //将消息显示在网页上
 function displayMsg(innerHtml) {
     var msg = JSON.parse(innerHtml);
+    if (msg.erro!=null) {
+        localStorage.clear();
+        localStorage.setItem('erro', innerHtml);
+    }
+    console.log(msg);
     console.log(msg);
     if ( "list" in msg) {
         for(let i in msg.list){
@@ -56,9 +61,8 @@ function displayMsg(innerHtml) {
             }
         }
     }
-    else if("errorStatus" in msg){
-        var err = msg.errorStatus;
-        console.log(err);
+    else if("erro" in msg){
+        var err = msg.erro;
         for(let i in err) {
             if(err[i]) {
                 document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
@@ -69,7 +73,6 @@ function displayMsg(innerHtml) {
         var weat = msg.weat;
         console.log(weat);
         for(let i in weat) {
-            console.log(weat[i])
             $("#"+i).text(weat[i]);
         }
     }

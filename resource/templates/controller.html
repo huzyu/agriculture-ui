@@ -3,11 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home Title</title>
+    <title>环境控制</title>
     <link rel="shortcut icon" href="../static/img/farm.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/asset/device.css"type="text/css"  rel="stylesheet"/>
+    <script>
+        window.addEventListener("storage", function (e) {
+            if (e.newValue!=null) {
+                var msg = e.newValue;
+                console.log(msg);
+                console.log(msg.miaoChuangGuanGai54_ElectromagneticValveOutput);
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="header">
