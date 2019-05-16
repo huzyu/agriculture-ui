@@ -40,7 +40,7 @@ var Main ={
                     }
                 });   
             console.log(info);
-            document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            
             }else if (params.type === 'close'){ 
                 info.id = 2*num+14;
                 jQuery.ajax({
@@ -55,7 +55,7 @@ var Main ={
                     }
                 });
                 console.log(info);   
-                document.getElementsByClassName("light1")[num].style.webkitFilter="";
+                
             }
 
         }
@@ -101,3 +101,24 @@ Vue.component('table-operation',{
 })
 var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app')
+
+window.addEventListener('storage',function(e){
+    if(e.key === "erro") {
+        var msg = JSON.parse(e.newValue);
+        if ("erro" in msg) {
+            var err = msg.erro;
+            console.log(err);
+            if(err.fengJi1_FeedBack){
+                document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            } else {
+                document.getElementsByClassName("light1")[0].style.webkitFilter="";
+            }
+            if(err.fengJi2_FeedBack) {
+                document.getElementsByClassName("light1")[1].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            } else {
+                document.getElementsByClassName("light1")[1].style.webkitFilter="";
+            }
+            
+        }
+    }
+})
