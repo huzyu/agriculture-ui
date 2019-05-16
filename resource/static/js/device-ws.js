@@ -65,7 +65,15 @@ function displayMsg(innerHtml) {
         var err = msg.erro;
         for(let i in err) {
             if(err[i]) {
-                document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
+                if (document.getElementById(i)){
+                    document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
+                }
+                
+            } else {
+                if(document.getElementById(i)){
+                    document.getElementById(i).style.webkitFilter="invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+                }
+                
             }
         }
     }

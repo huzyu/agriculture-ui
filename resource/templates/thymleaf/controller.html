@@ -49,7 +49,7 @@
             <div class=" right" >
                     <br/>
                 <h3>环境控制</h3>
-                
+                <p id="local" hidden>本地模式，禁用远程控制</p>
                     <div class="kongzhi">
                         <div><a th:href="@{/controller1}"><img th:src="@{/img/电动遮阳.png}"/><p>外遮阳</p></a></div>
                         <div><a th:href="@{/controller2}"><img th:src="@{/img/电动遮阳.png}"/><p>内遮阳</p></a></div>
@@ -81,5 +81,6 @@
 
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/remote.js}"></script>
 </body>
 </html>
