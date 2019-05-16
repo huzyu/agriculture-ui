@@ -1,5 +1,3 @@
-
-
 window.addEventListener('storage',function(e){
     if(e.key === "erro") {
         var msg = JSON.parse(e.newValue);
@@ -7,16 +5,10 @@ window.addEventListener('storage',function(e){
             var err = msg.erro;
             console.log(err);
             if(err.remote_Local_Control){
-               var aList = document.getElementsByTagName("a");
-               for(let i = 0; i <aList.length; i++) {
-                   aList.disabled = true;
-               }
+               document.getElementById("kongzhi").setAttribute("hidden", true)
                document.getElementById("local").removeAttribute("hidden");
             } else {
-               var aList = document.getElementsByTagName("a");
-               for(let i = 0; i <aList.length; i++) {
-                   aList.disabled = true;
-               }
+               document.getElementById("kongzhi").removeAttribute("hidden");
                document.getElementById("local").setAttribute("hidden", true);
             }
             
