@@ -40,7 +40,7 @@ var Main ={
                     }
                 });   
             console.log(info);
-            
+            document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }else if (params.type === 'close'){ 
                 info.id = 3*num+2 ;
                 jQuery.ajax({
@@ -55,7 +55,8 @@ var Main ={
                     }
                 });
                 console.log(info);   
-                
+                document.getElementsByClassName("light1")[num].style.webkitFilter= "";
+                document.getElementsByClassName("light2")[num].style.webkitFilter= "";
                 
             }else if (params.type === 'reverse'){ 
                 info.id = 3*num+3 ;
@@ -71,7 +72,7 @@ var Main ={
                     }
                 });
                 console.log(info);   
-                           
+                document.getElementsByClassName("light2")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";           
             }
 
         }

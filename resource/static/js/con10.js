@@ -39,7 +39,7 @@ var Main ={
                     }
                 });   
             console.log(info);
-            
+            document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }else if (params.type === 'close'){ 
                 info.id = 22;
                 jQuery.ajax({
@@ -54,7 +54,7 @@ var Main ={
                     }
                 });
                 console.log(info);   
-                
+                document.getElementsByClassName("light1")[num].style.webkitFilter= "";
             }
 
         }
