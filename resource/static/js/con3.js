@@ -132,6 +132,14 @@ window.addEventListener('storage',function(e){
         if ("erro" in msg) {
             var err = msg.erro;
             console.log(err);
+            if(err.remote_Local_Control){
+                document.getElementById("kongzhi").removeAttribute("hidden");
+                document.getElementById("local").setAttribute("hidden", true);
+            } else {
+              
+               document.getElementById("kongzhi").setAttribute("hidden", true)
+               document.getElementById("local").removeAttribute("hidden");
+            }
             if(err.dingTongFeng_Forward_FeedBack){
                 document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             } else {
