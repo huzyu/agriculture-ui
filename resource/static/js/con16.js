@@ -150,199 +150,239 @@ Vue.component('table-operation',{
 })
 
 
-window.addEventListener('storage',function(e){
-    if(e.key === "erro") {
-        var msg = JSON.parse(e.newValue);
-        if ("erro" in msg) {
-            var err = msg.erro;
-            console.log(err);
-            if(err.remote_Local_Control){
-                document.getElementById("kongzhi").removeAttribute("hidden");
-                document.getElementById("local").setAttribute("hidden", true);
-            } else {
-              
-               document.getElementById("kongzhi").setAttribute("hidden", true)
-               document.getElementById("local").removeAttribute("hidden");
-            }
-            if(err.miaoChuangGuanGai31_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[0].style.webkitFilter="";
-            }
 
-            if(err.miaoChuangGuanGai32_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[1].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[1].style.webkitFilter="";
-            }
-            
-            if(err.miaoChuangGuanGai33_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[2].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[2].style.webkitFilter="";
-            }
 
-            if(err.miaoChuangGuanGai34_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[3].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[3].style.webkitFilter="";
-            }
+var websocket = null;
+//判断当前浏览器是否支持WebSocket
+if ('WebSocket' in window) {
+    //本地：ws://localhost:6060/farm/pull 部署：ws://106.14.139.125:6060/farm/pull
+    websocket = new WebSocket("ws://106.14.139.125:6060/farm/pull");
+}else {
+    alert('当前浏览器 Not support websocket')
+}
 
-            if(err.miaoChuangGuanGai35_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[4].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[4].style.webkitFilter="";
-            }
+//连接发生错误的回调方法
+websocket.onerror = function () {
+    console.log("WebSocket连接发生错误");
+};
 
-            if(err.miaoChuangGuanGai36_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[5].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[5].style.webkitFilter="";
-            }
+//连接成功建立的回调方法
+websocket.onopen = function () {
+    console.log("WebSocket连接成功");
+};
 
-            if(err.miaoChuangGuanGai37_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[6].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[6].style.webkitFilter="";
-            }
+//接收到消息的回调方法
+websocket.onmessage = function (event) {
+    displayMsg(event.data);
+};
 
-            if(err.miaoChuangGuanGai38_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[7].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[7].style.webkitFilter="";
-            }
+//将消息显示在网页上
+function displayMsg(innerHtml) {
+    var msg = JSON.parse(innerHtml);
+    console.log(msg);
+    if("erro" in msg){
+        var err = msg.erro;
+        if(err.remote_Local_Control){
+            document.getElementById("kongzhi").removeAttribute("hidden");
+            document.getElementById("local").setAttribute("hidden", true);
+        } else {
+          
+           document.getElementById("kongzhi").setAttribute("hidden", true)
+           document.getElementById("local").removeAttribute("hidden");
+        }
+        if(err.miaoChuangGuanGai31_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[0].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai39_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[8].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[8].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai32_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[1].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[1].style.webkitFilter="";
+        }
+        
+        if(err.miaoChuangGuanGai33_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[2].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[2].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai40_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[9].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[9].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai34_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[3].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[3].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai41_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[10].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[10].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai35_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[4].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[4].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai42_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[11].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[11].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai36_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[5].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[5].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai43_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[12].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[12].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai37_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[6].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[6].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai44_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[13].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[13].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai38_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[7].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[7].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai45_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[14].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[14].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai39_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[8].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[8].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai46_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[15].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[15].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai40_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[9].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[9].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai47_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[16].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[16].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai41_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[10].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[10].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai48_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[17].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[17].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai42_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[11].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[11].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai49_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[18].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[18].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai43_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[12].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[12].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai50_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[19].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[19].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai44_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[13].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[13].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai51_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[20].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[20].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai45_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[14].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[14].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai52_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[21].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[21].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai46_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[15].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[15].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai53_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[22].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[22].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai47_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[16].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[16].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai54_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[23].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[23].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai48_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[17].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[17].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai55_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[24].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[24].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai49_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[18].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[18].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai56_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[25].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[25].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai50_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[19].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[19].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai57_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[26].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[26].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai51_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[20].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[20].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai58_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[27].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[27].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai52_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[21].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[21].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai59_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[28].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[28].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai53_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[22].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[22].style.webkitFilter="";
+        }
 
-            if(err.miaoChuangGuanGai60_ElectromagneticValveOutput){
-                document.getElementsByClassName("light1")[29].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
-            } else {
-                document.getElementsByClassName("light1")[29].style.webkitFilter="";
-            }
+        if(err.miaoChuangGuanGai54_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[23].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[23].style.webkitFilter="";
+        }
+
+        if(err.miaoChuangGuanGai55_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[24].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[24].style.webkitFilter="";
+        }
+
+        if(err.miaoChuangGuanGai56_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[25].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[25].style.webkitFilter="";
+        }
+
+        if(err.miaoChuangGuanGai57_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[26].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[26].style.webkitFilter="";
+        }
+
+        if(err.miaoChuangGuanGai58_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[27].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[27].style.webkitFilter="";
+        }
+
+        if(err.miaoChuangGuanGai59_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[28].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[28].style.webkitFilter="";
+        }
+
+        if(err.miaoChuangGuanGai60_ElectromagneticValveOutput){
+            document.getElementsByClassName("light1")[29].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+        } else {
+            document.getElementsByClassName("light1")[29].style.webkitFilter="";
         }
     }
-})
+}
+
+//连接关闭的回调方法
+websocket.onclose = function () {
+    console.log("WebSocket连接关闭");
+};
+
+//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+window.onbeforeunload = function () {
+    closeWebSocket();
+};
+
+//关闭WebSocket连接
+function closeWebSocket() {
+    websocket.close();
+}
