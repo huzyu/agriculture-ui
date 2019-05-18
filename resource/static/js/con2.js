@@ -40,7 +40,7 @@ var Main ={
                     }
                 });   
             console.log(info);
-            
+            document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }else if (params.type === 'close'){ 
                 info.id = 3*num+8 ;
                 jQuery.ajax({
@@ -54,7 +54,9 @@ var Main ={
                         }
                     }
                 });
-                console.log(info);   
+                console.log(info);
+                document.getElementsByClassName("light1")[num].style.webkitFilter= "";
+                document.getElementsByClassName("light2")[num].style.webkitFilter= "";   
             }else if (params.type === 'reverse'){ 
                 info.id = 3*num+9 ;
                 jQuery.ajax({
@@ -69,7 +71,7 @@ var Main ={
                     }
                 });
                 console.log(info);   
-                           
+                document.getElementsByClassName("light2")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";           
             }
 
         }
@@ -130,6 +132,14 @@ window.addEventListener('storage',function(e){
         if ("erro" in msg) {
             var err = msg.erro;
             console.log(err);
+            if(err.remote_Local_Control){
+                document.getElementById("kongzhi").removeAttribute("hidden");
+                document.getElementById("local").setAttribute("hidden", true);
+            } else {
+              
+               document.getElementById("kongzhi").setAttribute("hidden", true)
+               document.getElementById("local").removeAttribute("hidden");
+            }
             if(err.neiZheYang1_Forward_FeedBack){
                 document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }
@@ -150,7 +160,7 @@ window.addEventListener('storage',function(e){
             if(err.neiZheYang2_Reverse_FeedBack) {
                 document.getElementsByClassName("light2")[1].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             } else {
-                document.getElementsByClassName("light2")[1] = "";
+                document.getElementsByClassName("light2")[1].style.webkitFilter= "";
             }
         }
     }

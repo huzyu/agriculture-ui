@@ -39,6 +39,8 @@
             </div>
         </div>
         <h4 style="text-align:center">苗床灌溉</h4>
+        <p id="local" hidden>本地模式，禁用远程控制</p>
+        <div id="kongzhi">
         <button type="button" class="btn btn-default"><a th:href="@{/controller16}">31 - 60</a></button>
     </label>
         <div id="app">
@@ -48,6 +50,7 @@
                     style="width:100%" :min-height="200" :columns="columns" :table-data="tableData" row-hover-color="#eee" row-click-color="#edf7ff" @on-custom-comp="customCompFunc"></v-table>
                 </div>
             </template>
+        </div>
         </div>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
