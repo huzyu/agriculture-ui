@@ -9,15 +9,15 @@
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!--css的存储文件夹不能叫css,否则解析不出来，改为asset-->
     <link rel="stylesheet" th:href="@{/asset/device.css}"/>
-    <script>
-        window.addEventListener("storage", function (e) {
-            if (e.newValue!=null) {
-                var msg = JSON.parse(e.newValue);
-                console.log(msg);
-                console.log(msg.erro.miaoChuangGuanGai54_ElectromagneticValveOutput);
-            }
-        });
-    </script>
+    <style type="text/css">
+       
+        .deng, .deng div{display:inline-block;margin: 5px;}
+        .deng {margin-left: 30px;}
+        .deng img{
+            width: 2em;
+        }
+        .err {margin: 0 10%;}
+    </style>
 </head>
 <body>
     <div class="header">
@@ -49,8 +49,383 @@
             <div class=" right" >
                     <br/>
                 <h3>环境控制</h3>
-                <p id="local" hidden>本地模式，禁用远程控制</p>
-                <div id="kongzhi">
+                <div id="local" hidden>
+                <p>本地模式，禁用远程控制</p>
+                    <div>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td><div class="deng">
+                                <span>外遮阳#1</span>
+                                <div><p>正转</p><img id="waiZheYang1_Forward_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                                <div><p>反转</p><img id="waiZheYang1_Reverse_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>&nbsp;风机#1</span>
+                                <div><p>开关</p><img id="fengJi1_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>水培水泵</span>
+                                <div><p>开关</p><img id="shuiPeiShuiBeng_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="deng">
+                                <span>外遮阳#2</span>
+                                <div><p>正转</p><img id="waiZheYang2_Forward_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                                <div><p>反转</p><img id="waiZheYang2_Reverse_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>&nbsp;风机#2</span>
+                                <div><p>开关</p><img id="fengJi2_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>&nbsp;施肥泵</span>
+                                <div><p>开关</p><img id="shiFeiBeng_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="deng">
+                                <span>内遮阳#1</span>
+                                <div><p>正转</p><img id="neiZheYang1_Forward_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                                <div><p>反转</p><img id="neiZheYang1_Reverse_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td> <div class="deng">
+                                <span>水帘补水</span>
+                                <div><p>开关</p><img id="shuiLianBuShui_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span> &nbsp;照明#1</span>
+                                <div><p>开关</p><img id="zhaoMing1_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><div class="deng">
+                                <span>内遮阳#2</span>
+                                <div><p>正转</p><img id="neiZheYang2_Forward_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                                <div><p>反转</p><img id="neiZheYang2_Reverse_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>水池补水</span>
+                                <div><p>开关</p><img id="shuiChiBuShui_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span> &nbsp;照明#2</span>
+                                <div><p>开关</p><img id="zhaoMing2_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><div class="deng">
+                                <span> &nbsp;顶通风</span>
+                                <div><p>正转</p><img id="dingTongFeng_Forward_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                                <div><p>反转</p><img id="dingTongFeng_Reverse_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>灌溉水泵</span>
+                                <div><p>开关</p><img id="guanGaiShuiBeng_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span> &nbsp;增氧机 </span>
+                                <div><p>开关</p><img id="zengYangJi_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                        </tr>
+
+                        <tr>
+                            <td><div class="deng">
+                                <span> 苗床灌溉</span>
+                                <div></div><a  href="#miaochuang">详情</a></div>
+                            </td>
+                            <td><div class="deng">
+                                <span>&nbsp;热风机</span>
+                                <div><p>开关</p><img id="reFengJi_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span> &nbsp;LED &nbsp;</span>
+                                <div><p>开关</p><img id="led_FeedBack" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                    </div>
+                    <div id="miaochuang">
+                <table class="table table-striped">
+                        <caption>苗床灌溉</caption>
+                    <tbody>
+                        <tr>
+                            <td><div class="deng">
+                                <span>01</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai1_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>02</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai2_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>03</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai3_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                    <span>04</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai4_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>05</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai5_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>06</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai6_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="deng">
+                                <span>07</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai7_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>08</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai8_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>09</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai9_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                    <span>10</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai10_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>11</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai11_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>12</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai12_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                        </tr>
+
+                        <tr>
+                            <td><div class="deng">
+                                <span>13</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai13_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>14</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai14_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>15</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai15_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                    <span>16</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai16_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>17</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai17_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>18</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai18_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                        </tr>
+
+                        <tr>
+                            <td><div class="deng">
+                                <span>19</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai19_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>20</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai20_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>21</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai21_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                    <span>22</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai22_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>23</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai23_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>24</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai24_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                            </tr>
+
+                        <tr>
+                            <td><div class="deng">
+                                <span>25</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai25_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>26</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai26_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                <span>27</span>
+                                <div><p>开关</p><img id="miaoChuangGuanGai27_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                            </div></td>
+                            <td><div class="deng">
+                                    <span>28</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai28_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>29</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai29_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>30</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai30_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                            </tr>
+
+                        <tr>
+                                <td><div class="deng">
+                                    <span>31</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai31_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>32</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai32_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>33</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai33_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                        <span>34</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai34_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>35</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai35_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>36</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai36_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                            </tr>
+
+                        <tr>
+                                <td><div class="deng">
+                                    <span>37</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai37_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>38</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai38_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>39</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai39_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                        <span>400</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai40_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>41</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai41_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>42</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai42_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                            </tr>
+
+                        <tr>
+                                <td><div class="deng">
+                                    <span>43</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai43_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>44</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai44_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>45</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai45_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                        <span>46</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai46_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>47</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai47_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>48</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai48_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                            </tr>
+
+                        <tr>
+                                <td><div class="deng">
+                                    <span>49</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai49_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>50</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai50_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>51</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai51_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                        <span>52</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai52_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>53</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai53_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>54</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai54_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                            </tr>
+
+                        <tr>
+                                <td><div class="deng">
+                                    <span>55</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai55_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>56</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai56_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>57</span>
+                                    <div><p>开关</p><img id="miaoChuangGuanGai57_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                        <span>58</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai58_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>59</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai59_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                                    <td><div class="deng">
+                                        <span>60</span>
+                                        <div><p>开关</p><img id="miaoChuangGuanGai60_ElectromagneticValveOutput" th:src="@{/img/灯泡.png}"/></div>
+                                    </div></td>
+                            </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+                <div id="kongzhi" >
                     <div class="kongzhi">
                         <div><a th:href="@{/controller1}"><img th:src="@{/img/电动遮阳.png}"/><p>外遮阳</p></a></div>
                         <div><a th:href="@{/controller2}"><img th:src="@{/img/电动遮阳.png}"/><p>内遮阳</p></a></div>

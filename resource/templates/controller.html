@@ -48,7 +48,105 @@
             <div class=" right" >
                     <br/>
                 <h3>环境控制</h3>
-                
+                <div id="local" >
+                    <p>本地模式，禁用远程控制</p>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td><div class="deng">
+                                    <span>外遮阳#1</span>
+                                    <div><p>正转</p><img id="waiZheYang1_Forward_FeedBack" src="../static/img/灯泡.png""/></div>
+                                    <div><p>反转</p><img id="waiZheYang1_Reverse_FeedBack"src="../static/img/灯泡.png""/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>&nbsp;风机#1</span>
+                                    <div><p>开</p><img id="fengJi1_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>水培水泵</span>
+                                    <div><p>开</p><img id="shuiPeiShuiBeng_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="deng">
+                                    <span>外遮阳#2</span>
+                                    <div><p>正转</p><img id="waiZheYang2_Forward_FeedBack" src="../static/img/灯泡.png"/></div>
+                                    <div><p>反转</p><img id="waiZheYang2_Reverse_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>&nbsp;风机#2</span>
+                                    <div><p>开关</p><img id="fengJi2_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>&nbsp;施肥泵</span>
+                                    <div><p>开关</p><img id="shiFeiBeng_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="deng">
+                                    <span>内遮阳#1</span>
+                                    <div><p>正转</p><img id="neiZheYang1_Forward_FeedBack" src="../static/img/灯泡.png"/></div>
+                                    <div><p>反转</p><img id="neiZheYang1_Reverse_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td> <div class="deng">
+                                    <span>水帘补水</span>
+                                    <div><p>开关</p><img id="shuiLianBuShui_ElectromagneticValveOutput" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span> &nbsp;照明#1</span>
+                                    <div><p>开关</p><img id="zhaoMing1_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><div class="deng">
+                                    <span>内遮阳#2</span>
+                                    <div><p>正转</p><img id="neiZheYang2_Forward_FeedBack" src="../static/img/灯泡.png"/></div>
+                                    <div><p>反转</p><img id="neiZheYang2_Reverse_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>水池补水</span>
+                                    <div><p>开关</p><img id="shuiChiBuShui_ElectromagneticValveOutput" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span> &nbsp;照明#2</span>
+                                    <div><p>开关</p><img id="zhaoMing2_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><div class="deng">
+                                    <span> &nbsp;顶通风</span>
+                                    <div><p>正转</p><img id="dingTongFeng_Forward_FeedBack" src="../static/img/灯泡.png"/></div>
+                                    <div><p>反转</p><img id="dingTongFeng_Reverse_FeedBack"src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>灌溉水泵</span>
+                                    <div><p>开关</p><img id="guanGaiShuiBeng_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span> &nbsp;增氧机 </span>
+                                    <div><p>开关</p><img id="zengYangJi_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                            </tr>
+    
+                            <tr>
+                                <td><div class="deng">
+                                    <span> 苗床灌溉</span>
+                                    <div></div><a  th:href="@{/miaochuang}">详情</a></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span>&nbsp;热风机</span>
+                                    <div><p>开关</p><img id="reFengJi_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                                <td><div class="deng">
+                                    <span> &nbsp;LED &nbsp;</span>
+                                    <div><p>开关</p><img id="led_FeedBack" src="../static/img/灯泡.png"/></div>
+                                </div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
                 <p id="local" hidden>本地模式，禁用远程控制</p>
                 <div id="kongzhi">
                     <div class="kongzhi">
