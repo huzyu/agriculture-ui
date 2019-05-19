@@ -49,25 +49,25 @@
             </div>
 
             <div style="padding: 20px 20px 10px;">
-                <h4>自定义显示屏显示内容：</h5><br/>
-                <form class="bs-example bs-example-form" role="form" name="screen" action="device/led_display" method="POST" id="mform">
+                <h4>自定义显示屏显示内容：</h4><br/>
+                <form class="bs-example bs-example-form" role="form" name="screen"  id="mform">
                     <fieldset>
                         <div class="input-group input-group-lg" >
                                 <span class="input-group-addon">上：</span>
-                                <input type="text" class="form-control" name="up" placeholder="可输入显示内容">
+                                <input type="text" class="form-control" id="up" placeholder="可输入显示内容" name="msg">
                             </div><br>
                         <br />
                         <div>
                             <div class="input-group input-group-lg">
                                     <span class="input-group-addon">下：</span>
-                                <input type="text" class="form-control"  name="down" placeholder="勾选可输入显示内容 ,默认显示环境参数" disabled>
+                                <input type="text" class="form-control"  id="down" placeholder="勾选可输入显示内容 ,默认显示环境参数" disabled>
                                 <span class="input-group-addon">
                                     <input type="checkbox"  onclick="down.disabled=!this.checked">
                                 </span>
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
                         <br/>
-                        <button type="submit" class="btn btn-default btn-lg" onclick="formReset()">提交</button>
+                        <button class="btn btn-default btn-lg" type="submit">提交</button>
                     </fieldset>
                 </form>
             </div> 
@@ -80,10 +80,21 @@
     <script src="https://unpkg.com/vue-easytable/umd/js/index.js"></script>
     <script th:src="@{/js/con15.js}"></script>
     <script>
-    function formReset()
-  {
-  document.getElementById("mform").reset()
-  }
+        $("#mform").submit(function(){
+            parent.layer.close(index); //再执行关闭
+            $.ajax({
+                async: false,
+                type: "POST",
+                url:'device/led_display',
+                contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                data:$("#mform").serialize(),
+                dataType: "text",
+                success: function () {
+                },
+                error: function () {
+                }
+            })
+        })
     </script>
 </body>
 </html>
