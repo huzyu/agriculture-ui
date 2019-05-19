@@ -54,7 +54,7 @@
                     <fieldset>
                         <div class="input-group input-group-lg" >
                                 <span class="input-group-addon">上：</span>
-                                <input type="text" class="form-control" id="up" placeholder="可输入显示内容" name="msg">
+                                <input type="text" class="form-control" id="up" placeholder="可输入显示内容">
                             </div><br>
                         <br />
                         <div>
@@ -80,14 +80,13 @@
     <script src="https://unpkg.com/vue-easytable/umd/js/index.js"></script>
     <script th:src="@{/js/con15.js}"></script>
     <script>
-        $("#mform").submit(function(){
+        $("#mform").click(function(){
             var info={}
             info.msg = $("#up").val();
             $.ajax({
-                async: false,
                 type: "POST",
                 url:'device/led_display',
-                contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                contentType : "application/json",
                 data:JSON.stringify(info),
                 success: function () {
                 },
