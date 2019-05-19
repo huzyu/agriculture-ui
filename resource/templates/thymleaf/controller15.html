@@ -50,17 +50,17 @@
 
             <div style="padding: 20px 20px 10px;">
                 <h4>自定义显示屏显示内容：</h5><br/>
-                <form class="bs-example bs-example-form" role="form" name="screen" action="device/led_display" method="POST" id="mform">
+                <form class="bs-example bs-example-form" role="form" name="screen" >
                     <fieldset>
                         <div class="input-group input-group-lg" >
                                 <span class="input-group-addon">上：</span>
-                                <input type="text" class="form-control" name="up" placeholder="可输入显示内容">
+                                <input type="text" class="form-control" name="msg" id="up" placeholder="可输入显示内容">
                             </div><br>
                         <br />
                         <div>
                             <div class="input-group input-group-lg">
                                     <span class="input-group-addon">下：</span>
-                                <input type="text" class="form-control"  name="down" placeholder="勾选可输入显示内容 ,默认显示环境参数" disabled>
+                                <input type="text" class="form-control"  id="down" placeholder="勾选可输入显示内容 ,默认显示环境参数" disabled>
                                 <span class="input-group-addon">
                                     <input type="checkbox"  onclick="down.disabled=!this.checked">
                                 </span>
@@ -82,6 +82,20 @@
     <script>
     function formReset()
   {
+    $.ajax({            
+          type: "POST",
+          url: device/led_display,
+          contentType : "application/x-www-form-urlencoded; charset=utf-8",
+          data: $('#mform').serialize(),
+          success:function(data){
+              document.getElementById("up").value="";
+              document.getElementById("down").value="";
+              console.log("over..");
+          },
+          error:function(e){
+
+          }
+      });
   document.getElementById("mform").reset()
   }
     </script>
