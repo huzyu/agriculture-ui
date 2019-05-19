@@ -81,14 +81,14 @@
     <script th:src="@{/js/con15.js}"></script>
     <script>
         $("#mform").submit(function(){
-            parent.layer.close(index); //再执行关闭
+            var info={}
+            info.msg = $("#up").val();
             $.ajax({
                 async: false,
                 type: "POST",
                 url:'device/led_display',
                 contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                data:$("#mform").serialize(),
-                dataType: "text",
+                data:JSON.stringify(info),
                 success: function () {
                 },
                 error: function () {
