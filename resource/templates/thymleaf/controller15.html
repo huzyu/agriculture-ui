@@ -50,11 +50,11 @@
 
             <div style="padding: 20px 20px 10px;">
                 <h4>自定义显示屏显示内容：</h5><br/>
-                <form class="bs-example bs-example-form" role="form" name="screen">
-                    
+                <form class="bs-example bs-example-form" role="form" name="screen" action="device/led_display" method="POST" id="mform">
+                    <fieldset>
                         <div class="input-group input-group-lg" >
                                 <span class="input-group-addon">上：</span>
-                                <input type="text" class="form-control" placeholder="可输入显示内容">
+                                <input type="text" class="form-control" name="up" placeholder="可输入显示内容">
                             </div><br>
                         <br />
                         <div>
@@ -67,7 +67,8 @@
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
                         <br/>
-                        <button type="submit" class="btn btn-default btn-lg">提交</button>
+                        <button type="submit" class="btn btn-default btn-lg" onclick="formReset()">提交</button>
+                    </fieldset>
                 </form>
             </div> 
             </div>  
@@ -78,5 +79,11 @@
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/vue-easytable/umd/js/index.js"></script>
     <script th:src="@{/js/con15.js}"></script>
+    <script>
+    function formReset()
+  {
+  document.getElementById("mform").reset()
+  }
+    </script>
 </body>
 </html>
