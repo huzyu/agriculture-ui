@@ -35,6 +35,7 @@
                             <li><a href="#">日志记录</a></li>
                         </ul>
                     </div>
+                    <div style="float:right;"><img id="fengMingQi" th:src="@{/img/灯泡.png}" style="width: 2em"/>总故障灯</div>
                 </nav>
             </div>
         </div>
@@ -53,20 +54,11 @@
                 <form class="bs-example bs-example-form" role="form" name="screen"  id="mform">
                     <fieldset>
                         <div class="input-group input-group-lg" >
-                                <span class="input-group-addon">上：</span>
+                                
                                 <input type="text" class="form-control" id="up" placeholder="可输入显示内容" name="msg">
                             </div><br>
                         <br />
-                        <div>
-                            <div class="input-group input-group-lg">
-                                    <span class="input-group-addon">下：</span>
-                                <input type="text" class="form-control"  id="down" placeholder="勾选可输入显示内容 ,默认显示环境参数" disabled>
-                                <span class="input-group-addon">
-                                    <input type="checkbox"  onclick="down.disabled=!this.checked" id="check">
-                                </span>
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                        <br/>
+                       
                         <button class="btn btn-default btn-lg" type="submit">提交</button>
                     </fieldset>
                 </form>
@@ -83,11 +75,6 @@
         $("#mform").submit(function(){
             var info={}
             info.msg_up = $("#up").val();
-            info.msg_down = $("#down").val();
-            info.msg_flag = "0";
-            if(document.getElementById("check").checked) {
-                info.msg_flag = "1";
-            }
             console.log(info);
             $.ajax({
                 async: false,
