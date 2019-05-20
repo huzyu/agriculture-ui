@@ -62,7 +62,7 @@
                                     <span class="input-group-addon">下：</span>
                                 <input type="text" class="form-control"  id="down" placeholder="勾选可输入显示内容 ,默认显示环境参数" disabled>
                                 <span class="input-group-addon">
-                                    <input type="checkbox"  onclick="down.disabled=!this.checked">
+                                    <input type="checkbox"  onclick="down.disabled=!this.checked" id="check">
                                 </span>
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
@@ -82,7 +82,13 @@
     <script>
         $("#mform").click(function(){
             var info={}
-            info.msg = $("#up").val();
+            info.msg_up = $("#up").val();
+            info.msg_down = $("#down").val();
+            info.msg_flag = "0";
+            if(document.getElementById("check").checked) {
+                info.msg_flag = "1";
+            }
+            console.log(info);
             $.ajax({
                 type: "POST",
                 url:'device/led_display',
