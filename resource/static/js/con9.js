@@ -132,6 +132,17 @@ function displayMsg(innerHtml) {
     console.log(msg);
     if("erro" in msg){
         var err = msg.erro;
+        if(err.fengMingQi) {
+            if (document.getElementById("fengMingQi")){
+                document.getElementById("fengMingQi").style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%";
+            }
+            
+        } else {
+            if(document.getElementById("fengMingQi")){
+                document.getElementById("fengMingQi").style.webkitFilter="invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            }
+            
+        }
         if(err.remote_Local_Control){
             document.getElementById("kongzhi").removeAttribute("hidden");
             document.getElementById("local").setAttribute("hidden", true);
