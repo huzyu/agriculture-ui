@@ -2,7 +2,8 @@ var Main ={
     data() {
         return {
             tableData: [
-                {"votage":"电磁阀直流24","power":"10W"}
+                {"votage":"电机380V","power":"1.1KW*10"},
+                {"votage":"电机380V","power":"1.1KW*10"},
                 
              ],
             columns: [
@@ -26,7 +27,7 @@ var Main ={
             let fUrl = "device/device_control";
             let info = {};
             if (params.type === 'open'){ 
-                info.id = 36 ;
+                info.id = 160 ;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -41,7 +42,7 @@ var Main ={
             console.log(info);
             document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
             }else if (params.type === 'close'){ 
-                info.id = 37;
+                info.id =161;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -102,7 +103,6 @@ var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app')
 
 
-
 var websocket = null;
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
@@ -157,11 +157,11 @@ function displayMsg(innerHtml) {
            document.getElementById("kongzhi").setAttribute("hidden", true)
            document.getElementById("local").removeAttribute("hidden");
         }
-        if(err.shuiLianBuShui_ElectromagneticValveOutput){
+        if(err.shuiLian_FeedBack){
             document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
         } else {
             document.getElementsByClassName("light1")[0].style.webkitFilter="";
-        }
+        
     }
 }
 
