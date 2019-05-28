@@ -35,7 +35,11 @@
                             <li><a href="#">日志记录</a></li>
                         </ul>
                     </div>
-                    <div style="float:right;"><img id="fengMingQi" th:src="@{/img/灯泡.png}" style="width: 2em"/>总故障灯</div>
+                    <div style="float:right;">总故障灯：<img id="fengMingQi" th:src="@{/img/灯泡.png}" style="width: 2em"/><span>
+                        急停：<img src="img/灯泡.png" style="width: 2em" id="emergency_Stop_State">
+                        <a href=# onclick="emergency1()">开</a>&nbsp;
+                        <a href=# onclick="emergency2()">关</a>
+                        </span></div>
                 </nav>
             </div>
         </div>
@@ -56,5 +60,6 @@
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/vue-easytable/umd/js/index.js"></script>
     <script th:src="@{/js/con2.js}"></script>
+    <script th:src="@{/js/eme.js}"></script>
 </body>
 </html>

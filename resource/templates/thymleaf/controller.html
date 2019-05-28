@@ -41,7 +41,11 @@
                         <li><a href="#">日志记录</a></li>
                     </ul>
                 </div>
-                <div style="float:right;"><img id="fengMingQi" th:src="@{/img/灯泡.png}" style="width: 2em"/>总故障灯</div>
+                <div style="float:right;">总故障灯：<img id="fengMingQi" th:src="@{/img/灯泡.png}" style="width: 2em"/><span>
+                    急停：<img src="img/灯泡.png" style="width: 2em" id="emergency_Stop_State">
+                    <a href=# onclick="emergency1()">开</a>&nbsp;
+                    <a href=# onclick="emergency2()">关</a>
+                    </span></div>
             </nav>
         </div>
     </div>
@@ -49,9 +53,38 @@
         
             <div class=" right" >
                     <br/>
-                <h3>环境控制</h3>
+                    <h3>环境控制</h3>
+                    <div id="kongzhi" >
+                        <div class="kongzhi">
+                            <div><a th:href="@{/controller1}"><img th:src="@{/img/电动遮阳.png}"/><p>外遮阳</p></a></div>
+                            <div><a th:href="@{/controller2}"><img th:src="@{/img/电动遮阳.png}"/><p>内遮阳</p></a></div>
+                            <div><a th:href="@{/controller3}"><img th:src="@{/img/通风卷帘.png}"/><p>顶通风</p></a></div>
+                            <div><a th:href="@{/controller4}"><img th:src="@{/img/风机.png}"/><p>风机</p></a></div>
+                            <div><a th:href="@{/controller6}"><img th:src="@{/img/补水泵.png}"/><p>水帘补水</p></a></div>
+                        </div>
+                        <div class="kongzhi">
+                            
+                            
+                            <div><a th:href="@{/controller7}"><img th:src="@{/img/水池.png}"/><p>水池补水</p></a></div>
+                            <div><a th:href="@{/controller8}"><img th:src="@{/img/水泵.png}"/><p>灌溉水泵</p></a></div>
+                            <div><a th:href="@{/controller9}"><img th:src="@{/img/水泵.png}"/><p>水培水泵</p></a></div>
+                            <div><a th:href="@{/controller10}"><img th:src="@{/img/施肥.png}"/><p>施肥泵</p></a></div>
+                            <div><a th:href="@{/controller11}"><img th:src="@{/img/增氧.png}"/><p>增氧机</p></a></div>
+                        </div>
+                        <div class="kongzhi">
+                           
+                            <div><a th:href="@{/controller12}"><img th:src="@{/img/照明.png}"/><p>照明</p></a></div>
+                            <div><a th:href="@{/controller13}"><img th:src="@{/img/灌溉作业管理.png}"/><p>苗床灌溉</p></a></div>
+                            <div><a th:href="@{/controller14}"><img th:src="@{/img/烧烤 热风-01.png}"/><p>热风机</p></a></div>
+                            <div><a th:href="@{/controller15}"><img th:src="@{/img/显示屏.png}"/><p>显示屏</p></a></div>
+                            <div><a th:href="@{/controller5}"><img th:src="@{/img/补水泵.png}"/><p>水帘</p></a></div>
+                            
+    
+                        </div>
+                    </div>
+               
                 <div id="local" hidden>
-                <p>本地模式，禁用远程控制</p>
+                <p>本地模式，禁用远程控制</p></div>
                     <div>
                 <table class="table table-striped">
                     <tbody>
@@ -135,8 +168,8 @@
 
                         <tr>
                             <td><div class="deng">
-                                <span> 苗床灌溉</span>
-                                <div></div><a  href="#miaochuang">详情</a></div>
+                                <span> 水帘</span>
+                                <div><p>开关</p><img id="shuiLian_FeedBack" th:src="@{/img/灯泡.png}"/></div>
                             </td>
                             <td><div class="deng">
                                 <span>&nbsp;热风机</span>
@@ -425,39 +458,14 @@
                     </tbody>
                 </table>
                 </div>
-            </div>
-                <div id="kongzhi" >
-                    <div class="kongzhi">
-                        <div><a th:href="@{/controller1}"><img th:src="@{/img/电动遮阳.png}"/><p>外遮阳</p></a></div>
-                        <div><a th:href="@{/controller2}"><img th:src="@{/img/电动遮阳.png}"/><p>内遮阳</p></a></div>
-                        <div><a th:href="@{/controller3}"><img th:src="@{/img/通风卷帘.png}"/><p>顶通风</p></a></div>
-                        <div><a th:href="@{/controller4}"><img th:src="@{/img/风机.png}"/><p>风机</p></a></div>
-                        <div><a th:href="@{/controller6}"><img th:src="@{/img/补水泵.png}"/><p>水帘补水</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                        
-                        
-                        <div><a th:href="@{/controller7}"><img th:src="@{/img/水池.png}"/><p>水池补水</p></a></div>
-                        <div><a th:href="@{/controller8}"><img th:src="@{/img/水泵.png}"/><p>灌溉水泵</p></a></div>
-                        <div><a th:href="@{/controller9}"><img th:src="@{/img/水泵.png}"/><p>水培水泵</p></a></div>
-                        <div><a th:href="@{/controller10}"><img th:src="@{/img/施肥.png}"/><p>施肥泵</p></a></div>
-                        <div><a th:href="@{/controller11}"><img th:src="@{/img/增氧.png}"/><p>增氧机</p></a></div>
-                    </div>
-                    <div class="kongzhi">
-                       
-                        <div><a th:href="@{/controller12}"><img th:src="@{/img/照明.png}"/><p>照明</p></a></div>
-                        <div><a th:href="@{/controller13}"><img th:src="@{/img/灌溉作业管理.png}"/><p>苗床灌溉</p></a></div>
-                        <div><a th:href="@{/controller14}"><img th:src="@{/img/烧烤 热风-01.png}"/><p>热风机</p></a></div>
-                        <div><a th:href="@{/controller15}"><img th:src="@{/img/显示屏.png}"/><p>显示屏</p></a></div>
-                        <div><a href="#"><img th:src="@{/img/更多.png}"/><p></p></a></div>
-
-                    </div>
-                </div>
+            
+                
             </div>
         </div>
 
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script th:src="@{/js/remote.js}"></script>
+    <script th:src="@{/js/eme.js}"></script>
 </body>
 </html>

@@ -61,7 +61,11 @@
 						
 					</ul>
 				</div>
-				<div style="float:right;"><img id="fengMingQi" th:src="@{/img/灯泡.png}" style="width: 2em"/>总故障灯</div>
+				<div style="float:right;">总故障灯：<img id="fengMingQi" th:src="@{/img/灯泡.png}" style="width: 2em"/><span>
+                    急停：<img src="img/灯泡.png"style="width: 2em" id="emergency_Stop_State">
+                    <a href=# onclick="emergency1()">开</a>&nbsp;
+                    <a href=# onclick="emergency2()">关</a>
+                    </span></div>
 			</nav>
 		</div>
 		</div>
@@ -211,6 +215,15 @@
 							<div><p>反馈故障</p><img id="led_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
 						</div></td>
 					</tr>
+
+					<tr>
+						<td><div class="deng">
+							<span> &nbsp;水帘&nbsp; </span>
+							<div><p>电机故障</p><img id="shuiLian_SwitchMotorFault" th:src="@{/img/灯泡.png}"/></div>
+							<div><p>反馈故障</p><img id="shuiLian_Feedback_Fault_Output" th:src="@{/img/灯泡.png}"/></div>
+						</div></td>
+					</tr>
+
 				</tbody>
 			</table>
 		</div>
@@ -218,5 +231,6 @@
 		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script th:src="@{/js/device-ws.js}"></script>
+		<script th:src="@{/js/eme.js}"></script>
 	</body>
 </html>
