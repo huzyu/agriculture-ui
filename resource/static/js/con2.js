@@ -40,7 +40,7 @@ var Main ={
                     }
                 });   
             console.log(info);
-            document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
             }else if (params.type === 'close'){ 
                 info.id = 3*num+8 ;
                 jQuery.ajax({
@@ -71,7 +71,7 @@ var Main ={
                     }
                 });
                 console.log(info);   
-                document.getElementsByClassName("light2")[num].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";           
+                document.getElementsByClassName("light2")[num].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";           
             }
 
         }
@@ -159,7 +159,7 @@ function displayMsg(innerHtml) {
     if("erro" in msg){
         var err = msg.erro;
         if(err.emergency_Stop_State){
-            document.getElementById("emergency_Stop_State").style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            document.getElementById("emergency_Stop_State").style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
         } else {
             document.getElementById("emergency_Stop_State").style.webkitFilter="";
         }
@@ -170,7 +170,7 @@ function displayMsg(innerHtml) {
             
         } else {
             if(document.getElementById("fengMingQi")){
-                document.getElementById("fengMingQi").style.webkitFilter="invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+                document.getElementById("fengMingQi").style.webkitFilter="";
             }
             
         }
@@ -183,24 +183,24 @@ function displayMsg(innerHtml) {
            document.getElementById("local").removeAttribute("hidden");
         }
         if(err.neiZheYang1_Forward_FeedBack){
-            document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            document.getElementsByClassName("light1")[0].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
         }
         else{
             document.getElementsByClassName("light1")[0].style.webkitFilter="";
         }
         if(err.neiZheYang1_Reverse_FeedBack) {
-            document.getElementsByClassName("light2")[0].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            document.getElementsByClassName("light2")[0].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
         }
         else {
             document.getElementsByClassName("light2")[0].style.webkitFilter="";
         }
         if(err.neiZheYang2_Forward_FeedBack){
-            document.getElementsByClassName("light1")[1].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            document.getElementsByClassName("light1")[1].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
         } else {
             document.getElementsByClassName("light1")[1].style.webkitFilter="";
         }
         if(err.neiZheYang2_Reverse_FeedBack) {
-            document.getElementsByClassName("light2")[1].style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            document.getElementsByClassName("light2")[1].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
         } else {
             document.getElementsByClassName("light2")[1].style.webkitFilter= "";
         }
