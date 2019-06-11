@@ -29,7 +29,7 @@ function displayMsg(innerHtml) {
     if("erro" in msg){
         var err = msg.erro;
         if(err.emergency_Stop_State){
-            document.getElementById("emergency_Stop_State").style.webkitFilter= "invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+            document.getElementById("emergency_Stop_State").style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
         } else {
             document.getElementById("emergency_Stop_State").style.webkitFilter="";
         }
@@ -40,7 +40,7 @@ function displayMsg(innerHtml) {
             
         } else {
             if(document.getElementById("fengMingQi")){
-                document.getElementById("fengMingQi").style.webkitFilter="invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+                document.getElementById("fengMingQi").style.webkitFilter="";
             }
             
         }

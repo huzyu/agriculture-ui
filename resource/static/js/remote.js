@@ -35,7 +35,7 @@ function displayMsg(innerHtml) {
 
         } else {
             if(document.getElementById("fengMingQi")){
-                document.getElementById("fengMingQi").style.webkitFilter="invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+                document.getElementById("fengMingQi").style.webkitFilter="";
             }
 
         }
@@ -51,7 +51,7 @@ function displayMsg(innerHtml) {
             if(i!="fengMingQi"){
                 if(err[i]) {
                     if (document.getElementById(i)){
-                        document.getElementById(i).style.webkitFilter="invert(45%) sepia(60%) saturate(2599%) hue-rotate(91deg) brightness(128%) contrast(122%)";
+                        document.getElementById(i).style.webkitFilter="invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
                     }
 
                 } else {
