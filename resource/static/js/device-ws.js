@@ -31,10 +31,47 @@ function displayMsg(innerHtml) {
     }
     console.log(msg);
     console.log(msg);
+    if("pack" in  msg) {
+        for (let i in msg.pack) {
+            if(i < 12) {
+                let dataType = msg.pack[i].dataType;
+                let idSelector = msg.pack[i].loraNodeId;
+                switch(dataType){
+                    case 0:
+                        //温湿度数据
+                        $("#"+idSelector+"airTemp").text(msg.pack[i].airTemp);
+                        $("#"+idSelector+"airHumidity").text(msg.pack[i].airHumidity);
+                        break;
+                    case 1:
+                        //土壤湿度
+                        $("#"+idSelector+"soilHumidity").text(msg.pack[i].soilHumidity);
+                        break;
+                    case 2:
+                        //光照
+                        $("#"+idSelector+"intensity").text(msg.pack[i].intensity);
+                        break;
+                    case 3:
+                        //CO2
+                        $("#"+idSelector+"concentration").text(msg.pack[i].concentration);
+                        break;
+                    case 19:
+                        //水温
+                        $("#"+idSelector+"waterTemp").text(msg.pack[i].waterTemp);
+                        break;
+                }
+            }
+            else {
+                let out = msg.pack[12];
+                for(let j in out) {
+                    $("#"+j).text(out[j]);
+                }
+            }
+        }
+    }
     if ( "list" in msg) {
         for(let i in msg.list){
-            var dataType = msg.list[i].dataType;
-            var idSelector = msg.list[i].loraNodeId;
+            let dataType = msg.list[i].dataType;
+            let idSelector = msg.list[i].loraNodeId;
             switch(dataType){
                 case 0:
                     //温湿度数据
