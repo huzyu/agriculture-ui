@@ -4,6 +4,7 @@ var Main ={
             tableData: [
                 {"votage":"电机380V","power":"1.1KW*10"},
                 {"votage":"电机380V","power":"1.1KW*10"},
+                {"votage":"电机380V","power":"1.1KW*10"},
                 
              ],
             columns: [
@@ -27,7 +28,8 @@ var Main ={
             let fUrl = "device/device_control";
             let info = {};
             if (params.type === 'open'){ 
-                info.id = 2*num+13 ;
+                if(num == 2) info.id=164;
+                else info.id = 2*num+13 ;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -42,7 +44,8 @@ var Main ={
             console.log(info);
             document.getElementsByClassName("light1")[num].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
             }else if (params.type === 'close'){ 
-                info.id = 2*num+14;
+                if(num == 2) info.id=165;
+                else info.id = 2*num+14;
                 jQuery.ajax({
                     url:fUrl,
                     type:'POST',
@@ -163,6 +166,11 @@ function displayMsg(innerHtml) {
             document.getElementsByClassName("light1")[0].style.webkitFilter="";
         }
         if(err.fengJi2_FeedBack) {
+            document.getElementsByClassName("light1")[1].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
+        } else {
+            document.getElementsByClassName("light1")[1].style.webkitFilter="";
+        }
+        if(err.fengJi3_FeedBack) {
             document.getElementsByClassName("light1")[1].style.webkitFilter= "invert(19%) sepia(97%) saturate(6588%) hue-rotate(356deg) brightness(94%) contrast(118%)";
         } else {
             document.getElementsByClassName("light1")[1].style.webkitFilter="";
